@@ -17,373 +17,702 @@
     header {
       background: #fff;
       border-bottom: 1px solid #e0e0e0;
-      padding: 24px 40px;
+      padding: 20px 40px;
       display: flex;
-      align-items: baseline;
-      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    header h1 {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
+    .header-left { display: flex; align-items: center; gap: 12px; }
+
+    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+
+    .year-badge {
+      font-size: 12px; font-weight: 600; color: #6e6e73;
+      background: #f0f0f3; border-radius: 6px; padding: 2px 8px;
     }
 
-    header .year {
-      font-size: 13px;
-      font-weight: 500;
-      color: #6e6e73;
-      background: #f0f0f3;
-      border-radius: 6px;
-      padding: 2px 8px;
+    .author-badge {
+      font-size: 11px; font-weight: 700; color: #fff;
+      background: #1a7a3a; border-radius: 6px; padding: 3px 9px;
+      letter-spacing: 0.3px;
     }
+
+    .header-right { display: flex; align-items: center; gap: 10px; }
+
+    .btn-ghost {
+      font-size: 13px; font-weight: 500; color: #6e6e73;
+      background: none; border: 1px solid #d0d0d0;
+      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+    }
+    .btn-ghost:hover { background: #f5f5f7; color: #1d1d1f; }
+
+    .btn-primary {
+      font-size: 13px; font-weight: 600; color: #fff;
+      background: #1d1d1f; border: none;
+      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+    }
+    .btn-primary:hover { background: #3a3a3a; }
+
+    .btn-danger {
+      font-size: 13px; font-weight: 600; color: #fff;
+      background: #c0392b; border: none;
+      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+    }
+    .btn-danger:hover { background: #a93226; }
+
+    .btn-export {
+      font-size: 13px; font-weight: 600; color: #1a7a3a;
+      background: #f0faf4; border: 1px solid #b8e8c8;
+      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+    }
+    .btn-export:hover { background: #d8f3e4; }
 
     main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+      max-width: 900px; margin: 0 auto;
+      padding: 40px 24px; display: flex;
+      flex-direction: column; gap: 28px;
     }
 
+    /* Objective Card */
     .objective-card {
-      background: #fff;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-      overflow: hidden;
+      background: #fff; border-radius: 16px;
+      border: 1px solid #e0e0e0; overflow: hidden;
     }
 
     .objective-header {
-      padding: 20px 28px;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      padding: 18px 28px; border-bottom: 1px solid #f0f0f0;
+      display: flex; align-items: center; gap: 14px;
     }
 
     .objective-number {
-      font-size: 12px;
-      font-weight: 700;
-      color: #fff;
-      background: #1d1d1f;
-      border-radius: 8px;
-      width: 28px;
-      height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      font-size: 11px; font-weight: 700; color: #fff;
+      background: #1d1d1f; border-radius: 7px;
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
 
     .objective-title {
-      font-size: 17px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
+      font-size: 16px; font-weight: 700; letter-spacing: -0.2px; flex: 1;
     }
 
-    .kr-list {
-      display: flex;
-      flex-direction: column;
+    .edit-icon {
+      opacity: 0; font-size: 14px; cursor: pointer;
+      color: #6e6e73; padding: 4px; border-radius: 5px;
+      background: none; border: none; transition: opacity 0.15s;
+      flex-shrink: 0;
     }
+    .objective-header:hover .edit-icon,
+    .kr-item:hover .edit-icon { opacity: 1; }
+    .edit-icon:hover { color: #1d1d1f; background: #f0f0f3; }
 
-    .kr-item {
-      padding: 20px 28px;
-      border-bottom: 1px solid #f5f5f7;
-    }
+    /* KR List */
+    .kr-list { display: flex; flex-direction: column; }
 
-    .kr-item:last-child {
-      border-bottom: none;
-    }
+    .kr-item { padding: 20px 28px; border-bottom: 1px solid #f5f5f7; }
+    .kr-item:last-child { border-bottom: none; }
 
-    .kr-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
+    .kr-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
 
     .kr-id {
-      font-size: 11px;
-      font-weight: 600;
-      color: #6e6e73;
-      background: #f5f5f7;
-      border-radius: 5px;
-      padding: 2px 6px;
-      flex-shrink: 0;
-      margin-top: 1px;
+      font-size: 10px; font-weight: 700; color: #6e6e73;
+      background: #f5f5f7; border-radius: 5px;
+      padding: 2px 6px; flex-shrink: 0; margin-top: 2px;
     }
 
-    .kr-title {
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: -0.1px;
-    }
+    .kr-title { font-size: 14px; font-weight: 600; flex: 1; letter-spacing: -0.1px; }
 
     .kr-description {
-      font-size: 13px;
-      color: #6e6e73;
-      line-height: 1.55;
-      margin: 0 0 14px 0;
-      padding-left: 0;
+      font-size: 12px; color: #6e6e73; line-height: 1.6;
+      margin-bottom: 12px;
     }
 
-    .kr-metrics {
-      margin: 10px 0 14px 0;
-      padding-left: 16px;
-    }
+    .kr-metrics { margin: 8px 0 12px 14px; }
+    .kr-metrics li { font-size: 11px; color: #6e6e73; line-height: 1.7; }
 
-    .kr-metrics li {
-      font-size: 12px;
-      color: #6e6e73;
-      line-height: 1.6;
-    }
+    /* Tiers */
+    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 2px; }
 
-    .tiers {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .tier {
-      border-radius: 10px;
-      padding: 12px 14px;
-    }
-
-    .tier.solid    { background: #f0f4ff; border: 1px solid #d0dcff; }
+    .tier { border-radius: 10px; padding: 11px 13px; }
+    .tier.solid      { background: #f0f4ff; border: 1px solid #d0dcff; }
     .tier.impressive { background: #f0faf4; border: 1px solid #b8e8c8; }
     .tier.excellent  { background: #fffbf0; border: 1px solid #f5e0a0; }
 
-    .tier-label {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-bottom: 5px;
-    }
+    .tier.achieved.solid      { outline: 2px solid #3451b2; }
+    .tier.achieved.impressive { outline: 2px solid #1a7a3a; }
+    .tier.achieved.excellent  { outline: 2px solid #9a6800; }
 
-    .tier.solid     .tier-label { color: #3451b2; }
+    .tier-label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.6px; margin-bottom: 5px;
+    }
+    .tier.solid      .tier-label { color: #3451b2; }
     .tier.impressive .tier-label { color: #1a7a3a; }
     .tier.excellent  .tier-label { color: #9a6800; }
 
-    .tier-text {
-      font-size: 12px;
-      line-height: 1.5;
-      color: #3a3a3a;
-    }
+    .tier-text { font-size: 12px; line-height: 1.5; color: #3a3a3a; }
 
-    .tier.achieved {
-      outline: 2px solid currentColor;
-      outline-offset: -2px;
-    }
-
+    /* Status row (author only) */
     .status-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 14px;
+      display: flex; align-items: center; gap: 8px;
+      margin-top: 14px; flex-wrap: wrap;
     }
 
-    .status-label {
-      font-size: 12px;
-      color: #6e6e73;
-      font-weight: 500;
-    }
+    .status-label { font-size: 11px; font-weight: 600; color: #6e6e73; }
 
-    .tier-select {
-      font-size: 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
-      padding: 3px 8px;
-      background: #fff;
-      color: #1d1d1f;
-      cursor: pointer;
+    .tier-select, .current-input, .notes-input {
+      font-size: 12px; border: 1px solid #d0d0d0;
+      border-radius: 6px; padding: 4px 8px; background: #fff; color: #1d1d1f;
     }
-
-    .current-input {
-      font-size: 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
-      padding: 3px 8px;
-      background: #fff;
-      color: #1d1d1f;
-      width: 180px;
-    }
-
-    .notes-input {
-      font-size: 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
-      padding: 3px 8px;
-      background: #fff;
-      color: #1d1d1f;
-      flex: 1;
-    }
+    .current-input { width: 140px; }
+    .notes-input { flex: 1; min-width: 160px; }
 
     .save-btn {
-      font-size: 12px;
-      font-weight: 600;
-      background: #1d1d1f;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 4px 12px;
-      cursor: pointer;
+      font-size: 12px; font-weight: 600;
+      background: #1d1d1f; color: #fff; border: none;
+      border-radius: 6px; padding: 4px 12px; cursor: pointer;
     }
-
     .save-btn:hover { background: #3a3a3a; }
 
     .saved-flash {
-      font-size: 11px;
-      color: #1a7a3a;
-      font-weight: 600;
-      opacity: 0;
-      transition: opacity 0.3s;
+      font-size: 11px; color: #1a7a3a; font-weight: 600;
+      opacity: 0; transition: opacity 0.3s;
     }
-
     .saved-flash.show { opacity: 1; }
 
+    /* Status read-only indicator */
+    .status-indicator {
+      display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+    }
+    .status-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+    }
+    .status-dot.none       { background: #d0d0d0; }
+    .status-dot.solid      { background: #3451b2; }
+    .status-dot.impressive { background: #1a7a3a; }
+    .status-dot.excellent  { background: #9a6800; }
+    .status-text { font-size: 11px; color: #6e6e73; font-weight: 500; }
+
+    /* Add buttons */
+    .add-kr-btn {
+      display: flex; align-items: center; gap: 6px;
+      margin: 12px 28px 20px;
+      font-size: 12px; font-weight: 600; color: #3451b2;
+      background: none; border: 1px dashed #b0c0ff; border-radius: 8px;
+      padding: 8px 14px; cursor: pointer; width: fit-content;
+    }
+    .add-kr-btn:hover { background: #f0f4ff; }
+
+    .add-objective-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      font-size: 13px; font-weight: 600; color: #6e6e73;
+      background: #fff; border: 1px dashed #c0c0c0; border-radius: 16px;
+      padding: 16px; cursor: pointer; width: 100%;
+    }
+    .add-objective-btn:hover { background: #f5f5f7; color: #1d1d1f; border-color: #999; }
+
+    /* Modals */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 100; padding: 20px;
+    }
+
+    .modal-box {
+      background: #fff; border-radius: 16px;
+      padding: 28px; width: 100%; max-width: 480px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      display: flex; flex-direction: column; gap: 12px;
+    }
+
+    .modal-box.wide { max-width: 600px; max-height: 90vh; overflow-y: auto; }
+
+    .modal-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+
+    .modal-box label {
+      font-size: 11px; font-weight: 700; color: #6e6e73;
+      text-transform: uppercase; letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    .required { color: #c0392b; }
+
+    .modal-box input[type="text"],
+    .modal-box input[type="password"],
+    .modal-box textarea {
+      font-size: 13px; border: 1px solid #d0d0d0;
+      border-radius: 8px; padding: 8px 12px; width: 100%;
+      font-family: inherit; color: #1d1d1f; resize: vertical;
+    }
+    .modal-box input:focus, .modal-box textarea:focus {
+      outline: none; border-color: #3451b2; box-shadow: 0 0 0 3px rgba(52,81,178,0.12);
+    }
+
+    .modal-error { font-size: 12px; color: #c0392b; min-height: 16px; }
+
+    .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+
+    .btn-secondary {
+      font-size: 13px; font-weight: 500; color: #1d1d1f;
+      background: none; border: 1px solid #d0d0d0;
+      border-radius: 8px; padding: 7px 16px; cursor: pointer;
+    }
+    .btn-secondary:hover { background: #f5f5f7; }
+
     @media (max-width: 600px) {
-      .tiers { grid-template-columns: 1fr; }
-      header { padding: 16px 20px; }
+      header { padding: 14px 16px; }
       main { padding: 20px 12px; }
       .objective-header, .kr-item { padding: 16px 16px; }
+      .tiers { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1 id="page-title">OKRs</h1>
-  <span class="year" id="page-year"></span>
+  <div class="header-left">
+    <h1 id="page-title">OKRs</h1>
+    <span class="year-badge" id="page-year"></span>
+    <span class="author-badge" id="author-badge" style="display:none">Author</span>
+  </div>
+  <div class="header-right">
+    <button class="btn-export" id="export-btn" style="display:none">Export JSON</button>
+    <button class="btn-ghost" id="auth-toggle">Author Mode</button>
+  </div>
 </header>
 
 <main id="app"></main>
 
+<!-- Auth Modal -->
+<div class="modal-overlay" id="auth-modal" style="display:none">
+  <div class="modal-box">
+    <h3>Author Mode</h3>
+    <label>Password</label>
+    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="current-password">
+    <div class="modal-error" id="pw-error"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="pw-cancel">Cancel</button>
+      <button class="btn-primary" id="pw-submit">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<!-- Objective Modal (Add / Edit) -->
+<div class="modal-overlay" id="obj-modal" style="display:none">
+  <div class="modal-box">
+    <h3 id="obj-modal-heading">Add Objective</h3>
+    <label>Title <span class="required">*</span></label>
+    <input type="text" id="obj-title-input" placeholder="e.g. Rapidly deliver with quality">
+    <div class="modal-error" id="obj-error"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="obj-cancel">Cancel</button>
+      <button class="btn-primary" id="obj-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- KR Modal (Add / Edit) -->
+<div class="modal-overlay" id="kr-modal" style="display:none">
+  <div class="modal-box wide">
+    <h3 id="kr-modal-heading">Add Key Result</h3>
+    <label>Title <span class="required">*</span></label>
+    <input type="text" id="kr-title-input" placeholder="e.g. Delivery Predictability & Agile Maturity">
+    <label>Description <span class="required">*</span></label>
+    <textarea id="kr-desc-input" rows="3" placeholder="What does this key result measure?"></textarea>
+    <label>Metrics (optional — one per line)</label>
+    <textarea id="kr-metrics-input" rows="3" placeholder="e.g. % of sprint stories with AI-assisted first draft"></textarea>
+    <label>Solid <span class="required">*</span></label>
+    <textarea id="kr-solid-input" rows="2" placeholder="Solid tier target"></textarea>
+    <label>Impressive <span class="required">*</span></label>
+    <textarea id="kr-impressive-input" rows="2" placeholder="Impressive tier target"></textarea>
+    <label>Excellent <span class="required">*</span></label>
+    <textarea id="kr-excellent-input" rows="2" placeholder="Excellent tier target"></textarea>
+    <div class="modal-error" id="kr-error"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="kr-cancel">Cancel</button>
+      <button class="btn-primary" id="kr-save">Save</button>
+    </div>
+  </div>
+</div>
+
 <script>
-  const OKR_DATA = {"year":2026,"owner":"Simon","objectives":[{"id":1,"title":"Rapidly deliver with quality","keyResults":[{"id":"O1-KR1","title":"Delivery Predictability & Agile Maturity","description":"Achieve a high completed-vs-committed delivery ratio and ensure sprint tickets meet the Definition of Done (DoD) across all Retail & Wholesale delivery squads.","tiers":{"solid":"80% completed vs. committed; 80% DoD adherence.","impressive":"85% completed vs. committed; 85% DoD adherence.","excellent":"90%+ completed vs. committed; 90%+ DoD adherence."},"current":null,"achievedTier":null,"notes":""},{"id":"O1-KR2","title":"Testing Automation & Quality","description":"Increase automated test and regression coverage across apps in Retail Commerce, Retail Digital workspace, across desktop and mobile form factors.","tiers":{"solid":"40% overall automated test coverage.","impressive":"60% overall automated test coverage.","excellent":"80% overall automated test coverage."},"current":null,"achievedTier":null,"notes":""},{"id":"O1-KR3","title":"AI-Assisted Productivity","description":"Increase the percentage of product delivery work supported by AI-assisted tooling across Retail & Wholesale Technology — measured across four output types: requirements & user stories, data mapping artifacts, delivery scoping cycle time, and active use of a Retail & Wholesale domain knowledge base.","metrics":["Requirements & user stories — % of sprint stories with AI-assisted first draft","Data mapping artifacts — % of integration and data mapping docs AI-generated as first draft","Delivery scoping — % of initiatives scoped within 1 sprint using AI-assisted analysis","Domain knowledge base — Retail & Wholesale knowledge base built, maintained, and actively referenced by squads"],"tiers":{"solid":"20% combined AI-assisted contributions across the four output types, measured quarterly from Q2 2026.","impressive":"30% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads.","excellent":"40% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads."},"current":null,"achievedTier":null,"notes":""}]},{"id":2,"title":"Scale with Platforms","keyResults":[{"id":"O2-KR1","title":"Platform Services Adoption","description":"Drive global platform scale by building any new Retail & Wholesale capabilities via adoption of the approved and available Omnichannel Platform (OCP) services and ensuring all new initiatives requiring services assist funding and building out of OCP domains.","tiers":{"solid":"90% of new integrations built on new platform services where available.","impressive":"Solid + One extra unfunded capabilities migrate to new OCP services from legacy services.","excellent":"Solid + two extra unfunded capabilities migrate to new OCP services from legacy services."},"current":null,"achievedTier":null,"notes":""},{"id":"O2-KR2","title":"System Reliability & Security","description":"Maintain critical platform uptime across POS, Workforce Management, and Wholesale Order platforms and ensure rapid remediation of critical vulnerabilities detected.","tiers":{"solid":"99.0% uptime; critical vulnerabilities addressed in 3 days.","impressive":"99.5% uptime; critical vulnerabilities addressed in 48 hours.","excellent":"99.9% uptime; critical vulnerabilities addressed in 24 hours."},"current":null,"achievedTier":null,"notes":""}]}]};
+  // ─── CONFIG ────────────────────────────────────────────────────────────────
+  const AUTHOR_PASSWORD = 'author2026';
 
-  const DATA_KEY = 'okr_tracker_state';
+  // ─── EMBEDDED DATA ─────────────────────────────────────────────────────────
+  const OKR_DATA = {"year":2026,"owner":"Simon","objectives":[{"id":1,"title":"Rapidly deliver with quality","keyResults":[{"id":"O1-KR1","title":"Delivery Predictability & Agile Maturity","description":"Achieve a high completed-vs-committed delivery ratio and ensure sprint tickets meet the Definition of Done (DoD) across all Retail & Wholesale delivery squads.","tiers":{"solid":"80% completed vs. committed; 80% DoD adherence.","impressive":"85% completed vs. committed; 85% DoD adherence.","excellent":"90%+ completed vs. committed; 90%+ DoD adherence."}},{"id":"O1-KR2","title":"Testing Automation & Quality","description":"Increase automated test and regression coverage across apps in Retail Commerce, Retail Digital workspace, across desktop and mobile form factors.","tiers":{"solid":"40% overall automated test coverage.","impressive":"60% overall automated test coverage.","excellent":"80% overall automated test coverage."}},{"id":"O1-KR3","title":"AI-Assisted Productivity","description":"Increase the percentage of product delivery work supported by AI-assisted tooling across Retail & Wholesale Technology — measured across four output types: requirements & user stories, data mapping artifacts, delivery scoping cycle time, and active use of a Retail & Wholesale domain knowledge base.","metrics":["Requirements & user stories — % of sprint stories with AI-assisted first draft","Data mapping artifacts — % of integration and data mapping docs AI-generated as first draft","Delivery scoping — % of initiatives scoped within 1 sprint using AI-assisted analysis","Domain knowledge base — Retail & Wholesale knowledge base built, maintained, and actively referenced by squads"],"tiers":{"solid":"20% combined AI-assisted contributions across the four output types, measured quarterly from Q2 2026.","impressive":"30% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads.","excellent":"40% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads."}}]},{"id":2,"title":"Scale with Platforms","keyResults":[{"id":"O2-KR1","title":"Platform Services Adoption","description":"Drive global platform scale by building any new Retail & Wholesale capabilities via adoption of the approved and available Omnichannel Platform (OCP) services and ensuring all new initiatives requiring services assist funding and building out of OCP domains.","tiers":{"solid":"90% of new integrations built on new platform services where available.","impressive":"Solid + One extra unfunded capabilities migrate to new OCP services from legacy services.","excellent":"Solid + two extra unfunded capabilities migrate to new OCP services from legacy services."}},{"id":"O2-KR2","title":"System Reliability & Security","description":"Maintain critical platform uptime across POS, Workforce Management, and Wholesale Order platforms and ensure rapid remediation of critical vulnerabilities detected.","tiers":{"solid":"99.0% uptime; critical vulnerabilities addressed in 3 days.","impressive":"99.5% uptime; critical vulnerabilities addressed in 48 hours.","excellent":"99.9% uptime; critical vulnerabilities addressed in 24 hours."}}]}]};
 
-  async function loadOKRs() {
-    return OKR_DATA;
+  // ─── STORAGE KEYS ──────────────────────────────────────────────────────────
+  const STRUCT_KEY = 'okr_structure';
+  const TRACK_KEY  = 'okr_tracking';
+  const AUTH_KEY   = 'okr_author_session';
+
+  // ─── STATE ─────────────────────────────────────────────────────────────────
+  let data     = loadStructure();
+  let tracking = loadTracking();
+  let isAuthor = sessionStorage.getItem(AUTH_KEY) === 'true';
+
+  // Modal context
+  let modalCtx = {};
+
+  // ─── PERSISTENCE ───────────────────────────────────────────────────────────
+  function loadStructure() {
+    try {
+      const s = localStorage.getItem(STRUCT_KEY);
+      return s ? JSON.parse(s) : JSON.parse(JSON.stringify(OKR_DATA));
+    } catch { return JSON.parse(JSON.stringify(OKR_DATA)); }
   }
 
-  function loadState() {
-    try { return JSON.parse(localStorage.getItem(DATA_KEY)) || {}; }
+  function saveStructure() {
+    localStorage.setItem(STRUCT_KEY, JSON.stringify(data));
+  }
+
+  function loadTracking() {
+    try { return JSON.parse(localStorage.getItem(TRACK_KEY)) || {}; }
     catch { return {}; }
   }
 
-  function saveState(state) {
-    localStorage.setItem(DATA_KEY, JSON.stringify(state));
+  function saveTracking() {
+    localStorage.setItem(TRACK_KEY, JSON.stringify(tracking));
   }
 
-  function getKRState(state, krId) {
-    return state[krId] || { achievedTier: null, current: '', notes: '' };
+  function getTracking(krId) {
+    return tracking[krId] || { achievedTier: null, current: '', notes: '' };
   }
 
-  function render(data, state) {
-    document.title = `${data.owner}'s OKRs ${data.year}`;
+  // ─── RENDER ────────────────────────────────────────────────────────────────
+  function render() {
     document.getElementById('page-title').textContent = `${data.owner}'s OKRs`;
-    document.getElementById('page-year').textContent = data.year;
+    document.getElementById('page-year').textContent  = data.year;
+    document.title = `${data.owner}'s OKRs ${data.year}`;
+
+    document.getElementById('author-badge').style.display = isAuthor ? '' : 'none';
+    document.getElementById('export-btn').style.display   = isAuthor ? '' : 'none';
+    document.getElementById('auth-toggle').textContent    = isAuthor ? 'Exit Author Mode' : 'Author Mode';
 
     const app = document.getElementById('app');
     app.innerHTML = '';
 
-    data.objectives.forEach(obj => {
+    data.objectives.forEach((obj, oi) => {
       const card = document.createElement('div');
       card.className = 'objective-card';
 
-      card.innerHTML = `
-        <div class="objective-header">
-          <div class="objective-number">${String(obj.id).padStart(2,'0')}</div>
-          <div class="objective-title">${obj.title}</div>
-        </div>
-        <div class="kr-list" id="krs-${obj.id}"></div>
+      // — Objective header —
+      const hdr = document.createElement('div');
+      hdr.className = 'objective-header';
+      hdr.innerHTML = `
+        <div class="objective-number">${String(obj.id).padStart(2,'0')}</div>
+        <div class="objective-title">${escHtml(obj.title)}</div>
+        ${isAuthor ? `<button class="edit-icon" title="Edit objective">✎</button>` : ''}
       `;
-      app.appendChild(card);
+      if (isAuthor) {
+        hdr.querySelector('.edit-icon').onclick = () => openObjModal(oi);
+      }
+      card.appendChild(hdr);
 
-      const krList = card.querySelector(`#krs-${obj.id}`);
+      // — KR list —
+      const krList = document.createElement('div');
+      krList.className = 'kr-list';
 
-      obj.keyResults.forEach(kr => {
-        const s = getKRState(state, kr.id);
+      obj.keyResults.forEach((kr, ki) => {
+        const t = getTracking(kr.id);
         const item = document.createElement('div');
         item.className = 'kr-item';
 
-        const metricsHtml = kr.metrics
-          ? `<ul class="kr-metrics">${kr.metrics.map(m => `<li>${m}</li>`).join('')}</ul>`
+        const metricsHtml = kr.metrics && kr.metrics.length
+          ? `<ul class="kr-metrics">${kr.metrics.map(m => `<li>${escHtml(m)}</li>`).join('')}</ul>`
           : '';
 
-        const tierClass = (tier) => tier === s.achievedTier ? `tier ${tier} achieved` : `tier ${tier}`;
+        const tierClass = tier => `tier ${tier}${t.achievedTier === tier ? ' achieved' : ''}`;
 
         item.innerHTML = `
           <div class="kr-header">
-            <span class="kr-id">${kr.id}</span>
-            <span class="kr-title">${kr.title}</span>
+            <span class="kr-id">${escHtml(kr.id)}</span>
+            <span class="kr-title">${escHtml(kr.title)}</span>
+            ${isAuthor ? `<button class="edit-icon" title="Edit key result">✎</button>` : ''}
           </div>
-          <p class="kr-description">${kr.description}</p>
+          <p class="kr-description">${escHtml(kr.description)}</p>
           ${metricsHtml}
           <div class="tiers">
             <div class="${tierClass('solid')}">
               <div class="tier-label">Solid</div>
-              <div class="tier-text">${kr.tiers.solid}</div>
+              <div class="tier-text">${escHtml(kr.tiers.solid)}</div>
             </div>
             <div class="${tierClass('impressive')}">
               <div class="tier-label">Impressive</div>
-              <div class="tier-text">${kr.tiers.impressive}</div>
+              <div class="tier-text">${escHtml(kr.tiers.impressive)}</div>
             </div>
             <div class="${tierClass('excellent')}">
               <div class="tier-label">Excellent</div>
-              <div class="tier-text">${kr.tiers.excellent}</div>
+              <div class="tier-text">${escHtml(kr.tiers.excellent)}</div>
             </div>
           </div>
-          <div class="status-row">
-            <span class="status-label">Status:</span>
-            <select class="tier-select" data-kr="${kr.id}" data-field="achievedTier">
-              <option value="">— not started —</option>
-              <option value="solid"      ${s.achievedTier === 'solid'      ? 'selected' : ''}>Solid</option>
-              <option value="impressive" ${s.achievedTier === 'impressive' ? 'selected' : ''}>Impressive</option>
-              <option value="excellent"  ${s.achievedTier === 'excellent'  ? 'selected' : ''}>Excellent</option>
-            </select>
-            <span class="status-label">Current:</span>
-            <input class="current-input" type="text" placeholder="e.g. 75%" data-kr="${kr.id}" data-field="current" value="${s.current || ''}">
-            <input class="notes-input" type="text" placeholder="Notes…" data-kr="${kr.id}" data-field="notes" value="${s.notes || ''}">
-            <button class="save-btn" data-kr="${kr.id}">Save</button>
-            <span class="saved-flash" id="flash-${kr.id.replace('-','')}">Saved</span>
-          </div>
+          ${isAuthor ? renderStatusRow(kr.id, t) : renderStatusBadge(t)}
         `;
 
+        if (isAuthor) {
+          item.querySelector('.edit-icon').onclick = () => openKRModal(oi, ki);
+          bindStatusRow(item, kr.id);
+        }
+
         krList.appendChild(item);
-
-        item.querySelector(`.save-btn[data-kr="${kr.id}"]`).addEventListener('click', () => {
-          const tier = item.querySelector(`select[data-kr="${kr.id}"]`).value;
-          const current = item.querySelector(`input[data-field="current"][data-kr="${kr.id}"]`).value;
-          const notes = item.querySelector(`input[data-field="notes"][data-kr="${kr.id}"]`).value;
-
-          state[kr.id] = { achievedTier: tier || null, current, notes };
-          saveState(state);
-
-          // Flash saved message
-          const flash = document.getElementById(`flash-${kr.id.replace('-','')}`);
-          flash.classList.add('show');
-          setTimeout(() => flash.classList.remove('show'), 1500);
-
-          // Re-highlight tiers
-          ['solid','impressive','excellent'].forEach(t => {
-            const el = item.querySelectorAll('.tier')[['solid','impressive','excellent'].indexOf(t)];
-            el.className = tier === t ? `tier ${t} achieved` : `tier ${t}`;
-          });
-        });
       });
+
+      card.appendChild(krList);
+
+      // — Add KR button (author) —
+      if (isAuthor) {
+        const addKR = document.createElement('button');
+        addKR.className = 'add-kr-btn';
+        addKR.innerHTML = '+ Add Key Result';
+        addKR.onclick = () => openKRModal(oi, null);
+        card.appendChild(addKR);
+      }
+
+      app.appendChild(card);
+    });
+
+    // — Add Objective button (author) —
+    if (isAuthor) {
+      const addObj = document.createElement('button');
+      addObj.className = 'add-objective-btn';
+      addObj.innerHTML = '+ Add Objective';
+      addObj.onclick = () => openObjModal(null);
+      app.appendChild(addObj);
+    }
+  }
+
+  function renderStatusRow(krId, t) {
+    const flashId = 'flash-' + krId.replace(/[^a-z0-9]/gi, '');
+    return `
+      <div class="status-row">
+        <span class="status-label">Status</span>
+        <select class="tier-select">
+          <option value="">— not started —</option>
+          <option value="solid"      ${t.achievedTier === 'solid'       ? 'selected' : ''}>Solid</option>
+          <option value="impressive" ${t.achievedTier === 'impressive'  ? 'selected' : ''}>Impressive</option>
+          <option value="excellent"  ${t.achievedTier === 'excellent'   ? 'selected' : ''}>Excellent</option>
+        </select>
+        <span class="status-label">Current</span>
+        <input class="current-input" type="text" placeholder="e.g. 75%" value="${escAttr(t.current || '')}">
+        <input class="notes-input" type="text" placeholder="Notes…" value="${escAttr(t.notes || '')}">
+        <button class="save-btn">Save</button>
+        <span class="saved-flash" id="${flashId}">Saved</span>
+      </div>
+    `;
+  }
+
+  function renderStatusBadge(t) {
+    if (!t.achievedTier && !t.current) return '';
+    const tierLabel = t.achievedTier
+      ? t.achievedTier.charAt(0).toUpperCase() + t.achievedTier.slice(1)
+      : 'In progress';
+    const parts = [tierLabel];
+    if (t.current) parts.push(t.current);
+    if (t.notes)   parts.push(t.notes);
+    return `
+      <div class="status-indicator">
+        <span class="status-dot ${t.achievedTier || 'none'}"></span>
+        <span class="status-text">${escHtml(parts.join(' · '))}</span>
+      </div>
+    `;
+  }
+
+  function bindStatusRow(item, krId) {
+    const flashId = 'flash-' + krId.replace(/[^a-z0-9]/gi, '');
+    item.querySelector('.save-btn').addEventListener('click', () => {
+      const tier    = item.querySelector('.tier-select').value;
+      const current = item.querySelector('.current-input').value;
+      const notes   = item.querySelector('.notes-input').value;
+
+      tracking[krId] = { achievedTier: tier || null, current, notes };
+      saveTracking();
+
+      // Re-highlight tier cards
+      ['solid','impressive','excellent'].forEach((t, i) => {
+        const el = item.querySelectorAll('.tier')[i];
+        el.className = `tier ${t}${tier === t ? ' achieved' : ''}`;
+      });
+
+      const flash = document.getElementById(flashId);
+      if (flash) { flash.classList.add('show'); setTimeout(() => flash.classList.remove('show'), 1500); }
     });
   }
 
-  (async () => {
-    const data = await loadOKRs();
-    const state = loadState();
-    render(data, state);
-  })();
+  // ─── AUTH ──────────────────────────────────────────────────────────────────
+  document.getElementById('auth-toggle').addEventListener('click', () => {
+    if (isAuthor) {
+      isAuthor = false;
+      sessionStorage.removeItem(AUTH_KEY);
+      render();
+    } else {
+      showModal('auth-modal');
+      document.getElementById('pw-input').value = '';
+      document.getElementById('pw-error').textContent = '';
+      setTimeout(() => document.getElementById('pw-input').focus(), 50);
+    }
+  });
+
+  document.getElementById('pw-cancel').addEventListener('click', () => hideModal('auth-modal'));
+
+  document.getElementById('pw-submit').addEventListener('click', () => {
+    const pw = document.getElementById('pw-input').value;
+    if (pw === AUTHOR_PASSWORD) {
+      isAuthor = true;
+      sessionStorage.setItem(AUTH_KEY, 'true');
+      hideModal('auth-modal');
+      render();
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').select();
+    }
+  });
+
+  document.getElementById('pw-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('pw-submit').click();
+  });
+
+  // ─── OBJECTIVE MODAL ───────────────────────────────────────────────────────
+  function openObjModal(objIndex) {
+    modalCtx.objIndex = objIndex;
+    const isEdit = objIndex !== null;
+    document.getElementById('obj-modal-heading').textContent = isEdit ? 'Edit Objective' : 'Add Objective';
+    document.getElementById('obj-title-input').value = isEdit ? data.objectives[objIndex].title : '';
+    document.getElementById('obj-error').textContent = '';
+    showModal('obj-modal');
+    setTimeout(() => document.getElementById('obj-title-input').focus(), 50);
+  }
+
+  document.getElementById('obj-cancel').addEventListener('click', () => hideModal('obj-modal'));
+
+  document.getElementById('obj-save').addEventListener('click', () => {
+    const title = document.getElementById('obj-title-input').value.trim();
+    if (!title) { document.getElementById('obj-error').textContent = 'Title is required.'; return; }
+
+    if (modalCtx.objIndex !== null) {
+      data.objectives[modalCtx.objIndex].title = title;
+    } else {
+      const newId = data.objectives.length + 1;
+      data.objectives.push({ id: newId, title, keyResults: [] });
+    }
+    saveStructure();
+    hideModal('obj-modal');
+    render();
+  });
+
+  document.getElementById('obj-title-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('obj-save').click();
+  });
+
+  // ─── KR MODAL ──────────────────────────────────────────────────────────────
+  function openKRModal(objIndex, krIndex) {
+    modalCtx.objIndex = objIndex;
+    modalCtx.krIndex  = krIndex;
+    const isEdit = krIndex !== null;
+    document.getElementById('kr-modal-heading').textContent = isEdit ? 'Edit Key Result' : 'Add Key Result';
+    document.getElementById('kr-error').textContent = '';
+
+    if (isEdit) {
+      const kr = data.objectives[objIndex].keyResults[krIndex];
+      document.getElementById('kr-title-input').value     = kr.title;
+      document.getElementById('kr-desc-input').value      = kr.description;
+      document.getElementById('kr-metrics-input').value   = (kr.metrics || []).join('\n');
+      document.getElementById('kr-solid-input').value     = kr.tiers.solid;
+      document.getElementById('kr-impressive-input').value = kr.tiers.impressive;
+      document.getElementById('kr-excellent-input').value  = kr.tiers.excellent;
+    } else {
+      ['kr-title-input','kr-desc-input','kr-metrics-input',
+       'kr-solid-input','kr-impressive-input','kr-excellent-input']
+        .forEach(id => document.getElementById(id).value = '');
+    }
+    showModal('kr-modal');
+    setTimeout(() => document.getElementById('kr-title-input').focus(), 50);
+  }
+
+  document.getElementById('kr-cancel').addEventListener('click', () => hideModal('kr-modal'));
+
+  document.getElementById('kr-save').addEventListener('click', () => {
+    const title      = document.getElementById('kr-title-input').value.trim();
+    const desc       = document.getElementById('kr-desc-input').value.trim();
+    const metricsRaw = document.getElementById('kr-metrics-input').value.trim();
+    const solid      = document.getElementById('kr-solid-input').value.trim();
+    const impressive = document.getElementById('kr-impressive-input').value.trim();
+    const excellent  = document.getElementById('kr-excellent-input').value.trim();
+
+    const missing = [];
+    if (!title)      missing.push('Title');
+    if (!desc)       missing.push('Description');
+    if (!solid)      missing.push('Solid tier');
+    if (!impressive) missing.push('Impressive tier');
+    if (!excellent)  missing.push('Excellent tier');
+
+    if (missing.length) {
+      document.getElementById('kr-error').textContent = `Required: ${missing.join(', ')}.`;
+      return;
+    }
+
+    const metrics = metricsRaw ? metricsRaw.split('\n').map(s => s.trim()).filter(Boolean) : undefined;
+    const obj     = data.objectives[modalCtx.objIndex];
+
+    const krData = {
+      title, description: desc,
+      ...(metrics && metrics.length ? { metrics } : {}),
+      tiers: { solid, impressive, excellent }
+    };
+
+    if (modalCtx.krIndex !== null) {
+      krData.id = obj.keyResults[modalCtx.krIndex].id;
+      obj.keyResults[modalCtx.krIndex] = krData;
+    } else {
+      krData.id = `O${obj.id}-KR${obj.keyResults.length + 1}`;
+      obj.keyResults.push(krData);
+    }
+
+    saveStructure();
+    hideModal('kr-modal');
+    render();
+  });
+
+  // ─── EXPORT ────────────────────────────────────────────────────────────────
+  document.getElementById('export-btn').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = 'okrs.json'; a.click();
+    URL.revokeObjectURL(url);
+  });
+
+  // ─── UTILS ─────────────────────────────────────────────────────────────────
+  function showModal(id) { document.getElementById(id).style.display = 'flex'; }
+  function hideModal(id) { document.getElementById(id).style.display = 'none'; }
+
+  // Close modals on overlay click
+  ['auth-modal','obj-modal','kr-modal'].forEach(id => {
+    document.getElementById(id).addEventListener('click', e => {
+      if (e.target.id === id) hideModal(id);
+    });
+  });
+
+  // Close modals on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      ['auth-modal','obj-modal','kr-modal'].forEach(hideModal);
+    }
+  });
+
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function escAttr(str) { return escHtml(str); }
+
+  // ─── INIT ──────────────────────────────────────────────────────────────────
+  render();
 </script>
 </body>
 </html>
