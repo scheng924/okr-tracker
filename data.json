@@ -155,7 +155,7 @@
             "North America — Abbot Kinney",
             "North America — Stanford Centre (Relocation)",
             "North America — Seattle PO / Tulalip (Relocation)",
-            "North America — Vancouver Fair (Relocation)",
+            "North America — Valley Fair (Relocation)",
             "Europe — Trattnerhof",
             "Europe — Pratersaede",
             "Europe — Karl Johans Gate",
@@ -212,6 +212,32 @@
             "solid": "A documented Retail & Wholesale Technology vision and 2026 strategy communicated to the team and referenced in planning.",
             "impressive": "Solid + vision actively used to prioritise and deprioritise work; team can articulate how their work connects to the broader strategy.",
             "excellent": "Impressive + vision recognised and cited by senior leadership as a benchmark for strategic clarity within the technology organisation."
+          }
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "LiveIt",
+      "keyResults": [
+        {
+          "id": "O6-KR1",
+          "title": "Simon learns to swim",
+          "description": "Complete a structured swim program and build enough technique and endurance to swim continuously and confidently.",
+          "tiers": {
+            "solid": "Completes a structured beginner swim program and can swim 25m unassisted.",
+            "impressive": "Swims 50m continuously with controlled breathing and consistent technique.",
+            "excellent": "Completes a 200m continuous swim — enough to never be the liability on a group water activity."
+          }
+        },
+        {
+          "id": "O6-KR2",
+          "title": "Claire leads me on a mountain biking event and I lose nothing important to my body",
+          "description": "Participate in a mountain biking event led by Claire and emerge intact, dignified, and possibly enthusiastic.",
+          "tiers": {
+            "solid": "Completes the ride. All limbs accounted for.",
+            "impressive": "Solid + keeps up with Claire for at least 50% of the trail without stopping to \"appreciate the scenery.\"",
+            "excellent": "Impressive + finishes with enough dignity to suggest doing it again."
           }
         }
       ]
