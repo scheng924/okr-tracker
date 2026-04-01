@@ -3,15 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simon's 2026 OKRs</title>
+  <title>Simon's OKR Tracker 2026</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* ─── BRAND TOKENS ───────────────────────────────────────── */
-    /* Black #000000 · White #FFFFFF · White Smoke #F9F9F6      */
-    /* Light Gray #CCCCCC · Sage (accent) #5E6B52               */
-    /* Headline: ITC Elan Pro → Georgia fallback                */
-    /* UI: Helvetica Now Display → Helvetica fallback           */
 
     body {
       font-family: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -28,7 +22,6 @@
       padding: 14px 40px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 10;
@@ -40,50 +33,12 @@
 
     .header-logo { height: 26px; width: auto; display: block; }
 
-    .header-wordmark {
-      font-family: "ITC Elan Pro", Georgia, "Times New Roman", serif;
-      font-size: 13px; font-weight: normal;
-      letter-spacing: 0.15em; text-transform: uppercase; color: #000;
-    }
-
     .header-divider { width: 1px; height: 18px; background: #CCCCCC; }
 
     .header-page-label {
       font-size: 10px; font-weight: normal;
       letter-spacing: 0.12em; text-transform: uppercase; color: #595959;
     }
-
-    .author-badge {
-      font-size: 9px; font-weight: 400; color: #fff;
-      background: #5E6B52; padding: 3px 8px;
-      letter-spacing: 0.1em; text-transform: uppercase;
-    }
-
-    .header-right { display: flex; align-items: center; gap: 8px; }
-
-    .btn-ghost {
-      font-size: 10px; font-weight: 400; color: #595959;
-      background: none; border: 1px solid #CCCCCC;
-      padding: 6px 14px; cursor: pointer;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .btn-ghost:hover { background: #F9F9F6; color: #000; border-color: #000; }
-
-    .btn-primary {
-      font-size: 10px; font-weight: 400; color: #fff;
-      background: #000; border: 1px solid #000;
-      padding: 6px 14px; cursor: pointer;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .btn-primary:hover { background: #333; }
-
-    .btn-export {
-      font-size: 10px; font-weight: 400; color: #5E6B52;
-      background: none; border: 1px solid #5E6B52;
-      padding: 6px 14px; cursor: pointer;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .btn-export:hover { background: #EEF2EB; }
 
     /* ─── LAYOUT ─────────────────────────────────────────────── */
     main {
@@ -118,16 +73,6 @@
       letter-spacing: 0.12em; text-transform: uppercase;
       line-height: 1.1; flex: 1; color: #000;
     }
-
-    .edit-icon {
-      opacity: 0; font-size: 13px; cursor: pointer;
-      color: #CCCCCC; padding: 4px;
-      background: none; border: none; transition: opacity 0.15s;
-      flex-shrink: 0;
-    }
-    .objective-header:hover .edit-icon,
-    .kr-item:hover .edit-icon { opacity: 1; }
-    .edit-icon:hover { color: #000; }
 
     /* ─── KR LIST ────────────────────────────────────────────── */
     .kr-list { display: flex; flex-direction: column; }
@@ -171,158 +116,6 @@
 
     .tier-text { font-size: 12px; line-height: 1.6; color: #000; }
 
-    /* ─── STATUS SECTION ─────────────────────────────────────── */
-    .status-section {
-      margin-top: 20px; padding-top: 16px;
-      border-top: 1px solid #F9F9F6;
-    }
-
-    .status-labels-row {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 5px;
-    }
-
-    .status-inputs-row { display: flex; align-items: center; gap: 8px; }
-
-    .status-field-label {
-      font-size: 9px; font-weight: 400; color: #CCCCCC;
-      text-transform: uppercase; letter-spacing: 0.12em;
-    }
-
-    .status-select, .status-date, .status-current, .status-notes {
-      font-size: 12px; border: 1px solid #CCCCCC;
-      padding: 5px 8px; background: #fff; color: #000;
-      font-family: inherit; height: 32px; border-radius: 0;
-    }
-    .status-select {
-      width: 130px; cursor: pointer;
-      -webkit-appearance: none; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23595959'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 8px center;
-      padding-right: 22px;
-    }
-    .status-date    { width: 140px; }
-    .status-current { width: 110px; }
-    .status-notes   { flex: 1; min-width: 160px; }
-
-    .status-select:focus, .status-date:focus,
-    .status-current:focus, .status-notes:focus {
-      outline: none; border-color: #000;
-    }
-
-    .save-btn {
-      font-size: 10px; font-weight: 400; color: #fff;
-      background: #5E6B52; border: 1px solid #5E6B52;
-      padding: 0 16px; cursor: pointer; white-space: nowrap;
-      height: 32px; letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .save-btn:hover { background: #4a5540; border-color: #4a5540; }
-
-    .saved-flash {
-      font-size: 9px; color: #5E6B52; font-weight: 400;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .saved-flash.show { opacity: 1; }
-
-    /* ─── HISTORY ────────────────────────────────────────────── */
-    .history-section { margin-top: 14px; }
-
-    .history-select {
-      font-size: 12px; border: 1px solid #CCCCCC;
-      padding: 5px 8px; background: #F9F9F6; color: #000;
-      width: 100%; margin-top: 5px; cursor: pointer;
-      border-radius: 0; font-family: inherit;
-    }
-
-    .history-detail {
-      font-size: 12px; color: #595959; line-height: 1.65;
-      background: #F9F9F6; padding: 10px 14px; margin-top: 6px;
-      border-left: 2px solid #CCCCCC;
-    }
-
-    /* ─── STATUS BADGE (read-only) ───────────────────────────── */
-    .status-indicator {
-      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
-    }
-
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .status-dot.not-started { background: #CCCCCC; }
-    .status-dot.in-progress { background: #000; }
-    .status-dot.completed   { background: #5E6B52; }
-    .status-text { font-size: 11px; color: #595959; letter-spacing: 0.04em; }
-
-    /* ─── ADD BUTTONS ────────────────────────────────────────── */
-    .add-kr-btn {
-      display: flex; align-items: center; gap: 6px;
-      margin: 16px 32px 24px;
-      font-size: 10px; font-weight: 400; color: #595959;
-      background: none; border: 1px dashed #CCCCCC;
-      padding: 8px 14px; cursor: pointer; width: fit-content;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .add-kr-btn:hover { color: #000; border-color: #000; background: #F9F9F6; }
-
-    .add-objective-btn {
-      display: flex; align-items: center; justify-content: center;
-      font-size: 10px; font-weight: 400; color: #595959;
-      background: #fff; border: 1px dashed #CCCCCC;
-      padding: 20px; cursor: pointer; width: 100%;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .add-objective-btn:hover { color: #000; border-color: #000; background: #F9F9F6; }
-
-    /* ─── MODALS ─────────────────────────────────────────────── */
-    .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 100; padding: 20px;
-    }
-
-    .modal-box {
-      background: #fff; border: 1px solid #CCCCCC;
-      padding: 32px; width: 100%; max-width: 480px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
-      display: flex; flex-direction: column; gap: 12px;
-    }
-
-    .modal-box.wide { max-width: 600px; max-height: 90vh; overflow-y: auto; }
-
-    .modal-box h3 {
-      font-family: "ITC Elan Pro", Georgia, "Times New Roman", serif;
-      font-size: 18px; font-weight: normal;
-      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px;
-    }
-
-    .modal-box label {
-      font-size: 9px; font-weight: 400; color: #595959;
-      text-transform: uppercase; letter-spacing: 0.12em; margin-top: 4px;
-    }
-
-    .required { color: #000; }
-
-    .modal-box input[type="text"],
-    .modal-box input[type="password"],
-    .modal-box textarea {
-      font-size: 13px; border: 1px solid #CCCCCC;
-      padding: 8px 12px; width: 100%;
-      font-family: inherit; color: #000; resize: vertical; border-radius: 0;
-    }
-    .modal-box input:focus, .modal-box textarea:focus {
-      outline: none; border-color: #000;
-    }
-
-    .modal-error { font-size: 11px; color: #000; min-height: 16px; letter-spacing: 0.03em; }
-
-    .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
-
-    .btn-secondary {
-      font-size: 10px; font-weight: 400; color: #595959;
-      background: none; border: 1px solid #CCCCCC;
-      padding: 8px 16px; cursor: pointer;
-      letter-spacing: 0.08em; text-transform: uppercase;
-    }
-    .btn-secondary:hover { border-color: #000; color: #000; }
-
     @media (max-width: 600px) {
       header { padding: 12px 16px; }
       .header-divider, .header-page-label { display: none; }
@@ -344,148 +137,38 @@
     <span class="header-page-label">Simon Cheng &nbsp;</span>
     <div class="header-divider"></div>
     <span class="header-page-label">&nbsp; Objectives & Key Results for 2026</span>
-    <span class="author-badge" id="author-badge" style="display:none">Author</span>
-  </div>
-  <div class="header-right">
-    <button class="btn-export" id="export-btn" style="display:none">Export JSON</button>
-    <button class="btn-ghost" id="auth-toggle">Author Mode</button>
   </div>
 </header>
 
 <main id="app"></main>
 
-<!-- Auth Modal -->
-<div class="modal-overlay" id="auth-modal" style="display:none">
-  <div class="modal-box">
-    <h3>Author Mode</h3>
-    <label>Password</label>
-    <input type="password" id="pw-input" placeholder="Enter password" autocomplete="current-password">
-    <div class="modal-error" id="pw-error"></div>
-    <div class="modal-actions">
-      <button class="btn-secondary" id="pw-cancel">Cancel</button>
-      <button class="btn-primary" id="pw-submit">Unlock</button>
-    </div>
-  </div>
-</div>
-
-<!-- Objective Modal (Add / Edit) -->
-<div class="modal-overlay" id="obj-modal" style="display:none">
-  <div class="modal-box">
-    <h3 id="obj-modal-heading">Add Objective</h3>
-    <label>Title <span class="required">*</span></label>
-    <input type="text" id="obj-title-input" placeholder="e.g. Rapidly deliver with quality">
-    <div class="modal-error" id="obj-error"></div>
-    <div class="modal-actions">
-      <button class="btn-secondary" id="obj-cancel">Cancel</button>
-      <button class="btn-primary" id="obj-save">Save</button>
-    </div>
-  </div>
-</div>
-
-<!-- KR Modal (Add / Edit) -->
-<div class="modal-overlay" id="kr-modal" style="display:none">
-  <div class="modal-box wide">
-    <h3 id="kr-modal-heading">Add Key Result</h3>
-    <label>Title <span class="required">*</span></label>
-    <input type="text" id="kr-title-input" placeholder="e.g. Delivery Predictability & Agile Maturity">
-    <label>Description <span class="required">*</span></label>
-    <textarea id="kr-desc-input" rows="3" placeholder="What does this key result measure?"></textarea>
-    <label>Metrics (optional — one per line)</label>
-    <textarea id="kr-metrics-input" rows="3" placeholder="e.g. % of sprint stories with AI-assisted first draft"></textarea>
-    <label>Solid <span class="required">*</span></label>
-    <textarea id="kr-solid-input" rows="2" placeholder="Solid tier target"></textarea>
-    <label>Impressive <span class="required">*</span></label>
-    <textarea id="kr-impressive-input" rows="2" placeholder="Impressive tier target"></textarea>
-    <label>Excellent <span class="required">*</span></label>
-    <textarea id="kr-excellent-input" rows="2" placeholder="Excellent tier target"></textarea>
-    <div class="modal-error" id="kr-error"></div>
-    <div class="modal-actions">
-      <button class="btn-secondary" id="kr-cancel">Cancel</button>
-      <button class="btn-primary" id="kr-save">Save</button>
-    </div>
-  </div>
-</div>
-
 <script>
-  // ─── CONFIG ────────────────────────────────────────────────────────────────
-  const AUTHOR_PASSWORD = 'author2026';
-
-  // ─── STORAGE KEYS ──────────────────────────────────────────────────────────
-  const STRUCT_KEY = 'okr_structure';
-  const TRACK_KEY  = 'okr_tracking';
-  const AUTH_KEY   = 'okr_author_session';
-
-  // ─── STATE ─────────────────────────────────────────────────────────────────
-  let data     = null;
-  let tracking = loadTracking();
-  let isAuthor = sessionStorage.getItem(AUTH_KEY) === 'true';
-
-  // Modal context
-  let modalCtx = {};
-
-  // ─── PERSISTENCE ───────────────────────────────────────────────────────────
-  function loadStructure(defaultData) {
-    try {
-      const s = localStorage.getItem(STRUCT_KEY);
-      return s ? JSON.parse(s) : JSON.parse(JSON.stringify(defaultData));
-    } catch { return JSON.parse(JSON.stringify(defaultData)); }
+  function escHtml(str) {
+    return String(str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  function saveStructure() {
-    localStorage.setItem(STRUCT_KEY, JSON.stringify(data));
-  }
-
-  function loadTracking() {
-    try { return JSON.parse(localStorage.getItem(TRACK_KEY)) || {}; }
-    catch { return {}; }
-  }
-
-  function saveTracking() {
-    localStorage.setItem(TRACK_KEY, JSON.stringify(tracking));
-  }
-
-  function getTracking(krId) {
-    return tracking[krId] || { status: 'not-started', date: '', current: '', notes: '', history: [] };
-  }
-
-  function statusLabel(s) {
-    return { 'not-started': 'Not Started', 'in-progress': 'In Progress', 'completed': 'Completed' }[s] || s;
-  }
-
-  // ─── RENDER ────────────────────────────────────────────────────────────────
-  function render() {
-    document.title = `Simon's Objectives & Key Results for 2026 ${data.year}`;
-
-    document.getElementById('author-badge').style.display = isAuthor ? '' : 'none';
-    document.getElementById('export-btn').style.display   = isAuthor ? '' : 'none';
-    document.getElementById('auth-toggle').textContent    = isAuthor ? 'Exit Author Mode' : 'Author Mode';
-
+  function render(data) {
     const app = document.getElementById('app');
     app.innerHTML = '';
 
-    data.objectives.forEach((obj, oi) => {
+    data.objectives.forEach(obj => {
       const card = document.createElement('div');
       card.className = 'objective-card';
 
-      // — Objective header —
       const hdr = document.createElement('div');
       hdr.className = 'objective-header';
       hdr.innerHTML = `
         <div class="objective-number">${String(obj.id).padStart(2,'0')}</div>
         <div class="objective-title">${escHtml(obj.title)}</div>
-        ${isAuthor ? `<button class="edit-icon" title="Edit objective">✎</button>` : ''}
       `;
-      if (isAuthor) {
-        hdr.querySelector('.edit-icon').onclick = () => openObjModal(oi);
-      }
       card.appendChild(hdr);
 
-      // — KR list —
       const krList = document.createElement('div');
       krList.className = 'kr-list';
 
-      obj.keyResults.forEach((kr, ki) => {
-        const t = getTracking(kr.id);
+      obj.keyResults.forEach(kr => {
         const item = document.createElement('div');
         item.className = 'kr-item';
 
@@ -497,7 +180,6 @@
           <div class="kr-header">
             <span class="kr-id">${escHtml(kr.id)}</span>
             <span class="kr-title">${escHtml(kr.title)}</span>
-            ${isAuthor ? `<button class="edit-icon" title="Edit key result">✎</button>` : ''}
           </div>
           <p class="kr-description">${escHtml(kr.description)}</p>
           ${metricsHtml}
@@ -515,321 +197,19 @@
               <div class="tier-text">${escHtml(kr.tiers.excellent)}</div>
             </div>
           </div>
-          ${isAuthor ? renderStatusRow(kr.id, t) : renderStatusBadge(t)}
         `;
-
-        if (isAuthor) {
-          item.querySelector('.edit-icon').onclick = () => openKRModal(oi, ki);
-          bindStatusRow(item, kr.id);
-        }
 
         krList.appendChild(item);
       });
 
       card.appendChild(krList);
-
-      // — Add KR button (author) —
-      if (isAuthor) {
-        const addKR = document.createElement('button');
-        addKR.className = 'add-kr-btn';
-        addKR.innerHTML = '+ Add Key Result';
-        addKR.onclick = () => openKRModal(oi, null);
-        card.appendChild(addKR);
-      }
-
       app.appendChild(card);
     });
-
-    // — Add Objective button (author) —
-    if (isAuthor) {
-      const addObj = document.createElement('button');
-      addObj.className = 'add-objective-btn';
-      addObj.innerHTML = '+ Add Objective';
-      addObj.onclick = () => openObjModal(null);
-      app.appendChild(addObj);
-    }
   }
 
-  function renderStatusRow(krId, t) {
-    const flashId = 'flash-' + krId.replace(/[^a-z0-9]/gi, '');
-    const today   = new Date().toISOString().split('T')[0];
-    const curDate = t.date || today;
-    const history = t.history || [];
-
-    const historyOpts = history.slice().reverse().map((h, i) => {
-      const lbl = `${h.date}  ·  ${statusLabel(h.status)}${h.current ? '  ·  ' + h.current : ''}`;
-      return `<option value="${i}">${escHtml(lbl)}</option>`;
-    }).join('');
-
-    return `
-      <div class="status-section">
-        <div class="status-labels-row">
-          <span class="status-field-label" style="width:130px">Status</span>
-          <span class="status-field-label" style="width:140px">Date</span>
-          <span class="status-field-label" style="width:110px">Current</span>
-          <span class="status-field-label" style="flex:1">Notes</span>
-        </div>
-        <div class="status-inputs-row">
-          <select class="status-select">
-            <option value="not-started" ${(!t.status || t.status === 'not-started') ? 'selected' : ''}>Not Started</option>
-            <option value="in-progress" ${t.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
-            <option value="completed"   ${t.status === 'completed'   ? 'selected' : ''}>Completed</option>
-          </select>
-          <input class="status-date" type="date" value="${escAttr(curDate)}">
-          <input class="status-current" type="text" placeholder="e.g. 75%" value="${escAttr(t.current || '')}">
-          <input class="status-notes" type="text" placeholder="Notes…" value="${escAttr(t.notes || '')}">
-          <button class="save-btn">Log Update</button>
-          <span class="saved-flash" id="${flashId}">Saved</span>
-        </div>
-        ${history.length ? `
-        <div class="history-section">
-          <span class="status-field-label">History (${history.length} ${history.length === 1 ? 'entry' : 'entries'})</span>
-          <select class="history-select">
-            <option value="">— select an entry to view —</option>
-            ${historyOpts}
-          </select>
-          <div class="history-detail" style="display:none"></div>
-        </div>` : ''}
-      </div>
-    `;
-  }
-
-  function renderStatusBadge(t) {
-    if (!t.history || !t.history.length) return '';
-    const status = t.status || 'not-started';
-    const parts  = [statusLabel(status)];
-    if (t.current) parts.push(t.current);
-    if (t.date)    parts.push(t.date);
-    if (t.notes)   parts.push(t.notes);
-    return `
-      <div class="status-indicator">
-        <span class="status-dot ${status}"></span>
-        <span class="status-text">${escHtml(parts.join(' · '))}</span>
-        ${t.history.length > 1 ? `<span class="status-text">(${t.history.length} updates)</span>` : ''}
-      </div>
-    `;
-  }
-
-  function bindStatusRow(item, krId) {
-    const flashId = 'flash-' + krId.replace(/[^a-z0-9]/gi, '');
-
-    item.querySelector('.save-btn').addEventListener('click', () => {
-      const status  = item.querySelector('.status-select').value;
-      const date    = item.querySelector('.status-date').value;
-      const current = item.querySelector('.status-current').value;
-      const notes   = item.querySelector('.status-notes').value;
-
-      if (!tracking[krId]) tracking[krId] = { status: 'not-started', date: '', current: '', notes: '', history: [] };
-      if (!tracking[krId].history) tracking[krId].history = [];
-
-      tracking[krId].status  = status;
-      tracking[krId].date    = date;
-      tracking[krId].current = current;
-      tracking[krId].notes   = notes;
-      tracking[krId].history.push({ date, status, current, notes });
-
-      saveTracking();
-      render();
-
-      const flash = document.getElementById(flashId);
-      if (flash) { flash.classList.add('show'); setTimeout(() => flash.classList.remove('show'), 1500); }
-    });
-
-    const historySelect = item.querySelector('.history-select');
-    if (historySelect) {
-      historySelect.addEventListener('change', () => {
-        const detail = item.querySelector('.history-detail');
-        if (!historySelect.value) { detail.style.display = 'none'; return; }
-
-        const t       = getTracking(krId);
-        const history = t.history.slice().reverse();
-        const entry   = history[parseInt(historySelect.value)];
-
-        detail.innerHTML =
-          `<strong>${escHtml(entry.date)}</strong> &nbsp;·&nbsp; ${escHtml(statusLabel(entry.status))}` +
-          (entry.current ? ` &nbsp;·&nbsp; <em>${escHtml(entry.current)}</em>` : '') +
-          (entry.notes   ? ` &nbsp;—&nbsp; ${escHtml(entry.notes)}` : '');
-        detail.style.display = '';
-      });
-    }
-  }
-
-  // ─── AUTH ──────────────────────────────────────────────────────────────────
-  document.getElementById('auth-toggle').addEventListener('click', () => {
-    if (isAuthor) {
-      isAuthor = false;
-      sessionStorage.removeItem(AUTH_KEY);
-      render();
-    } else {
-      showModal('auth-modal');
-      document.getElementById('pw-input').value = '';
-      document.getElementById('pw-error').textContent = '';
-      setTimeout(() => document.getElementById('pw-input').focus(), 50);
-    }
-  });
-
-  document.getElementById('pw-cancel').addEventListener('click', () => hideModal('auth-modal'));
-
-  document.getElementById('pw-submit').addEventListener('click', () => {
-    const pw = document.getElementById('pw-input').value;
-    if (pw === AUTHOR_PASSWORD) {
-      isAuthor = true;
-      sessionStorage.setItem(AUTH_KEY, 'true');
-      hideModal('auth-modal');
-      render();
-    } else {
-      document.getElementById('pw-error').textContent = 'Incorrect password.';
-      document.getElementById('pw-input').select();
-    }
-  });
-
-  document.getElementById('pw-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('pw-submit').click();
-  });
-
-  // ─── OBJECTIVE MODAL ───────────────────────────────────────────────────────
-  function openObjModal(objIndex) {
-    modalCtx.objIndex = objIndex;
-    const isEdit = objIndex !== null;
-    document.getElementById('obj-modal-heading').textContent = isEdit ? 'Edit Objective' : 'Add Objective';
-    document.getElementById('obj-title-input').value = isEdit ? data.objectives[objIndex].title : '';
-    document.getElementById('obj-error').textContent = '';
-    showModal('obj-modal');
-    setTimeout(() => document.getElementById('obj-title-input').focus(), 50);
-  }
-
-  document.getElementById('obj-cancel').addEventListener('click', () => hideModal('obj-modal'));
-
-  document.getElementById('obj-save').addEventListener('click', () => {
-    const title = document.getElementById('obj-title-input').value.trim();
-    if (!title) { document.getElementById('obj-error').textContent = 'Title is required.'; return; }
-
-    if (modalCtx.objIndex !== null) {
-      data.objectives[modalCtx.objIndex].title = title;
-    } else {
-      const newId = data.objectives.length + 1;
-      data.objectives.push({ id: newId, title, keyResults: [] });
-    }
-    saveStructure();
-    hideModal('obj-modal');
-    render();
-  });
-
-  document.getElementById('obj-title-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') document.getElementById('obj-save').click();
-  });
-
-  // ─── KR MODAL ──────────────────────────────────────────────────────────────
-  function openKRModal(objIndex, krIndex) {
-    modalCtx.objIndex = objIndex;
-    modalCtx.krIndex  = krIndex;
-    const isEdit = krIndex !== null;
-    document.getElementById('kr-modal-heading').textContent = isEdit ? 'Edit Key Result' : 'Add Key Result';
-    document.getElementById('kr-error').textContent = '';
-
-    if (isEdit) {
-      const kr = data.objectives[objIndex].keyResults[krIndex];
-      document.getElementById('kr-title-input').value     = kr.title;
-      document.getElementById('kr-desc-input').value      = kr.description;
-      document.getElementById('kr-metrics-input').value   = (kr.metrics || []).join('\n');
-      document.getElementById('kr-solid-input').value     = kr.tiers.solid;
-      document.getElementById('kr-impressive-input').value = kr.tiers.impressive;
-      document.getElementById('kr-excellent-input').value  = kr.tiers.excellent;
-    } else {
-      ['kr-title-input','kr-desc-input','kr-metrics-input',
-       'kr-solid-input','kr-impressive-input','kr-excellent-input']
-        .forEach(id => document.getElementById(id).value = '');
-    }
-    showModal('kr-modal');
-    setTimeout(() => document.getElementById('kr-title-input').focus(), 50);
-  }
-
-  document.getElementById('kr-cancel').addEventListener('click', () => hideModal('kr-modal'));
-
-  document.getElementById('kr-save').addEventListener('click', () => {
-    const title      = document.getElementById('kr-title-input').value.trim();
-    const desc       = document.getElementById('kr-desc-input').value.trim();
-    const metricsRaw = document.getElementById('kr-metrics-input').value.trim();
-    const solid      = document.getElementById('kr-solid-input').value.trim();
-    const impressive = document.getElementById('kr-impressive-input').value.trim();
-    const excellent  = document.getElementById('kr-excellent-input').value.trim();
-
-    const missing = [];
-    if (!title)      missing.push('Title');
-    if (!desc)       missing.push('Description');
-    if (!solid)      missing.push('Solid tier');
-    if (!impressive) missing.push('Impressive tier');
-    if (!excellent)  missing.push('Excellent tier');
-
-    if (missing.length) {
-      document.getElementById('kr-error').textContent = `Required: ${missing.join(', ')}.`;
-      return;
-    }
-
-    const metrics = metricsRaw ? metricsRaw.split('\n').map(s => s.trim()).filter(Boolean) : undefined;
-    const obj     = data.objectives[modalCtx.objIndex];
-
-    const krData = {
-      title, description: desc,
-      ...(metrics && metrics.length ? { metrics } : {}),
-      tiers: { solid, impressive, excellent }
-    };
-
-    if (modalCtx.krIndex !== null) {
-      krData.id = obj.keyResults[modalCtx.krIndex].id;
-      obj.keyResults[modalCtx.krIndex] = krData;
-    } else {
-      krData.id = `O${obj.id}-KR${obj.keyResults.length + 1}`;
-      obj.keyResults.push(krData);
-    }
-
-    saveStructure();
-    hideModal('kr-modal');
-    render();
-  });
-
-  // ─── EXPORT ────────────────────────────────────────────────────────────────
-  document.getElementById('export-btn').addEventListener('click', () => {
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
-    a.href = url; a.download = 'okrs.json'; a.click();
-    URL.revokeObjectURL(url);
-  });
-
-  // ─── UTILS ─────────────────────────────────────────────────────────────────
-  function showModal(id) { document.getElementById(id).style.display = 'flex'; }
-  function hideModal(id) { document.getElementById(id).style.display = 'none'; }
-
-  // Close modals on overlay click
-  ['auth-modal','obj-modal','kr-modal'].forEach(id => {
-    document.getElementById(id).addEventListener('click', e => {
-      if (e.target.id === id) hideModal(id);
-    });
-  });
-
-  // Close modals on Escape
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      ['auth-modal','obj-modal','kr-modal'].forEach(hideModal);
-    }
-  });
-
-  function escHtml(str) {
-    return String(str)
-      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  function escAttr(str) { return escHtml(str); }
-
-  // ─── INIT ──────────────────────────────────────────────────────────────────
   fetch('data.json')
     .then(r => r.json())
-    .then(defaultData => {
-      data = loadStructure(defaultData);
-      render();
-    });
+    .then(render);
 </script>
 </body>
 </html>
