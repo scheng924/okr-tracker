@@ -158,11 +158,11 @@
         {
           "id": "O4-KR4",
           "title": "Product Dashboard",
-          "description": "Build and embed a product dashboard that gives the Retail & Wholesale Technology team visibility into capability performance, enabling data-driven prioritisation and investment decisions.",
+          "description": "Build and embed a product dashboard that gives the Retail & Wholesale Technology team visibility into capability performance, enabling data-driven prioritization and investment decisions.",
           "tiers": {
             "solid": "Product dashboard live with core metrics defined and accessible to the team by Q2 2026.",
             "impressive": "Solid + dashboard actively referenced in quarterly business reviews with at least one documented decision influenced by the data.",
-            "excellent": "Impressive + dashboard expanded to include predictive or trending metrics, and adopted as the primary tool for roadmap prioritisation discussions."
+            "excellent": "Impressive + dashboard expanded to include predictive or trending metrics, and adopted as the primary tool for roadmap prioritization discussions."
           }
         }
       ]
@@ -183,7 +183,7 @@
           "tiers": {
             "solid": "At least one structured innovation initiative (e.g. hackathon, spike, or experimentation sprint) run within the year, with outcomes shared across the team.",
             "impressive": "Solid + at least one idea originating from the team moves into the roadmap or is adopted as a practice change.",
-            "excellent": "Impressive + innovation contributions recognised at a leadership level; team members proactively bring forward ideas without prompting."
+            "excellent": "Impressive + innovation contributions recognized at a leadership level; team members proactively bring forward ideas without prompting."
           }
         },
         {
@@ -198,7 +198,7 @@
           "tiers": {
             "solid": "Regular cadence of team and stakeholder communications maintained (e.g. team updates, leadership reporting) with no significant alignment gaps.",
             "impressive": "Solid + feedback from team and stakeholders reflects high clarity and confidence in direction; no surprises at key milestones.",
-            "excellent": "Impressive + communication style recognised as a model within the broader leadership group; proactively shapes narratives rather than responding to them."
+            "excellent": "Impressive + communication style recognized as a model within the broader leadership group; proactively shapes narratives rather than responding to them."
           }
         },
         {
@@ -212,8 +212,8 @@
           ],
           "tiers": {
             "solid": "A documented Retail & Wholesale Technology vision and 2026 strategy communicated to the team and referenced in planning.",
-            "impressive": "Solid + vision actively used to prioritise and deprioritise work; team can articulate how their work connects to the broader strategy.",
-            "excellent": "Impressive + vision recognised and cited by senior leadership as a benchmark for strategic clarity within the technology organisation."
+            "impressive": "Solid + vision actively used to prioritize and deprioritize work; team can articulate how their work connects to the broader strategy.",
+            "excellent": "Impressive + vision recognized and cited by senior leadership as a benchmark for strategic clarity within the technology organization."
           }
         }
       ]
