@@ -3,21 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simon Cheng's OKRs 2026</title>
+  <title>Arc'teryx OKR Tracker 2026</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ─── BRAND TOKENS ───────────────────────────────────────── */
+    /* Black #000000 · White #FFFFFF · White Smoke #F9F9F6      */
+    /* Light Gray #CCCCCC · Sage (accent) #5E6B52               */
+    /* Headline: ITC Elan Pro → Georgia fallback                */
+    /* UI: Helvetica Now Display → Helvetica fallback           */
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
+      font-family: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: #F9F9F6;
+      color: #000;
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ─── HEADER ─────────────────────────────────────────────── */
     header {
       background: #fff;
-      border-bottom: 1px solid #e0e0e0;
-      padding: 20px 40px;
+      border-bottom: 1px solid #CCCCCC;
+      padding: 14px 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -26,276 +34,298 @@
       z-index: 10;
     }
 
-    .header-left { display: flex; align-items: center; gap: 12px; }
+    .header-left { display: flex; align-items: center; gap: 20px; }
 
-    header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+    .header-brand { display: flex; align-items: center; gap: 12px; }
 
-    .year-badge {
-      font-size: 12px; font-weight: 600; color: #6e6e73;
-      background: #f0f0f3; border-radius: 6px; padding: 2px 8px;
+    .header-logo { height: 26px; width: auto; display: block; }
+
+    .header-wordmark {
+      font-family: "ITC Elan Pro", Georgia, "Times New Roman", serif;
+      font-size: 13px; font-weight: normal;
+      letter-spacing: 0.15em; text-transform: uppercase; color: #000;
+    }
+
+    .header-divider { width: 1px; height: 18px; background: #CCCCCC; }
+
+    .header-page-label {
+      font-size: 10px; font-weight: normal;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #595959;
     }
 
     .author-badge {
-      font-size: 11px; font-weight: 700; color: #fff;
-      background: #1a7a3a; border-radius: 6px; padding: 3px 9px;
-      letter-spacing: 0.3px;
+      font-size: 9px; font-weight: 400; color: #fff;
+      background: #5E6B52; padding: 3px 8px;
+      letter-spacing: 0.1em; text-transform: uppercase;
     }
 
-    .header-right { display: flex; align-items: center; gap: 10px; }
+    .header-right { display: flex; align-items: center; gap: 8px; }
 
     .btn-ghost {
-      font-size: 13px; font-weight: 500; color: #6e6e73;
-      background: none; border: 1px solid #d0d0d0;
-      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+      font-size: 10px; font-weight: 400; color: #595959;
+      background: none; border: 1px solid #CCCCCC;
+      padding: 6px 14px; cursor: pointer;
+      letter-spacing: 0.08em; text-transform: uppercase;
     }
-    .btn-ghost:hover { background: #f5f5f7; color: #1d1d1f; }
+    .btn-ghost:hover { background: #F9F9F6; color: #000; border-color: #000; }
 
     .btn-primary {
-      font-size: 13px; font-weight: 600; color: #fff;
-      background: #1d1d1f; border: none;
-      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+      font-size: 10px; font-weight: 400; color: #fff;
+      background: #000; border: 1px solid #000;
+      padding: 6px 14px; cursor: pointer;
+      letter-spacing: 0.08em; text-transform: uppercase;
     }
-    .btn-primary:hover { background: #3a3a3a; }
-
-    .btn-danger {
-      font-size: 13px; font-weight: 600; color: #fff;
-      background: #c0392b; border: none;
-      border-radius: 8px; padding: 6px 14px; cursor: pointer;
-    }
-    .btn-danger:hover { background: #a93226; }
+    .btn-primary:hover { background: #333; }
 
     .btn-export {
-      font-size: 13px; font-weight: 600; color: #1a7a3a;
-      background: #f0faf4; border: 1px solid #b8e8c8;
-      border-radius: 8px; padding: 6px 14px; cursor: pointer;
+      font-size: 10px; font-weight: 400; color: #5E6B52;
+      background: none; border: 1px solid #5E6B52;
+      padding: 6px 14px; cursor: pointer;
+      letter-spacing: 0.08em; text-transform: uppercase;
     }
-    .btn-export:hover { background: #d8f3e4; }
+    .btn-export:hover { background: #EEF2EB; }
 
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
     main {
-      max-width: 900px; margin: 0 auto;
-      padding: 40px 24px; display: flex;
-      flex-direction: column; gap: 28px;
+      max-width: 960px; margin: 0 auto;
+      padding: 48px 24px; display: flex;
+      flex-direction: column; gap: 24px;
     }
 
-    /* Objective Card */
+    /* ─── OBJECTIVE CARD ─────────────────────────────────────── */
     .objective-card {
-      background: #fff; border-radius: 16px;
-      border: 1px solid #e0e0e0; overflow: hidden;
+      background: #fff;
+      border: 1px solid #CCCCCC;
+      overflow: hidden;
     }
 
     .objective-header {
-      padding: 18px 28px; border-bottom: 1px solid #f0f0f0;
-      display: flex; align-items: center; gap: 14px;
+      padding: 24px 32px;
+      border-bottom: 1px solid #CCCCCC;
+      display: flex; align-items: baseline; gap: 18px;
     }
 
     .objective-number {
-      font-size: 11px; font-weight: 700; color: #fff;
-      background: #1d1d1f; border-radius: 7px;
-      width: 26px; height: 26px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      font-size: 11px; font-weight: 400; color: #CCCCCC;
+      letter-spacing: 0.1em; flex-shrink: 0;
     }
 
     .objective-title {
-      font-size: 16px; font-weight: 700; letter-spacing: -0.2px; flex: 1;
+      font-family: "ITC Elan Pro", Georgia, "Times New Roman", serif;
+      font-size: 21px; font-weight: normal;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      line-height: 1; flex: 1; color: #000;
     }
 
     .edit-icon {
-      opacity: 0; font-size: 14px; cursor: pointer;
-      color: #6e6e73; padding: 4px; border-radius: 5px;
+      opacity: 0; font-size: 13px; cursor: pointer;
+      color: #CCCCCC; padding: 4px;
       background: none; border: none; transition: opacity 0.15s;
       flex-shrink: 0;
     }
     .objective-header:hover .edit-icon,
     .kr-item:hover .edit-icon { opacity: 1; }
-    .edit-icon:hover { color: #1d1d1f; background: #f0f0f3; }
+    .edit-icon:hover { color: #000; }
 
-    /* KR List */
+    /* ─── KR LIST ────────────────────────────────────────────── */
     .kr-list { display: flex; flex-direction: column; }
 
-    .kr-item { padding: 20px 28px; border-bottom: 1px solid #f5f5f7; }
+    .kr-item { padding: 24px 32px; border-bottom: 1px solid #F9F9F6; }
     .kr-item:last-child { border-bottom: none; }
 
-    .kr-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+    .kr-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
 
     .kr-id {
-      font-size: 10px; font-weight: 700; color: #6e6e73;
-      background: #f5f5f7; border-radius: 5px;
-      padding: 2px 6px; flex-shrink: 0; margin-top: 2px;
+      font-size: 10px; font-weight: 400; color: #CCCCCC;
+      letter-spacing: 0.08em; flex-shrink: 0; margin-top: 3px;
     }
 
-    .kr-title { font-size: 14px; font-weight: 600; flex: 1; letter-spacing: -0.1px; }
+    .kr-title { font-size: 14px; font-weight: 400; flex: 1; color: #000; line-height: 1.35; }
 
-    .kr-description {
-      font-size: 12px; color: #6e6e73; line-height: 1.6;
-      margin-bottom: 12px;
+    .kr-description { font-size: 13px; color: #595959; line-height: 1.65; margin-bottom: 16px; }
+
+    .kr-metrics { margin: 8px 0 16px 14px; }
+    .kr-metrics li { font-size: 12px; color: #595959; line-height: 1.7; list-style: disc; }
+
+    /* ─── TIERS ──────────────────────────────────────────────── */
+    .tiers {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; border: 1px solid #CCCCCC; margin-top: 4px;
     }
 
-    .kr-metrics { margin: 8px 0 12px 14px; }
-    .kr-metrics li { font-size: 11px; color: #6e6e73; line-height: 1.7; }
-
-    /* Tiers */
-    .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 2px; }
-
-    .tier { border-radius: 10px; padding: 11px 13px; }
-    .tier.solid      { background: #f0f4ff; border: 1px solid #d0dcff; }
-    .tier.impressive { background: #f0faf4; border: 1px solid #b8e8c8; }
-    .tier.excellent  { background: #fffbf0; border: 1px solid #f5e0a0; }
-
-    .tier.achieved.solid      { outline: 2px solid #3451b2; }
-    .tier.achieved.impressive { outline: 2px solid #1a7a3a; }
-    .tier.achieved.excellent  { outline: 2px solid #9a6800; }
+    .tier { background: #fff; padding: 14px 16px; border-left: 3px solid transparent; }
+    .tier + .tier { border-top: none; }
+    .tier.solid      { border-left-color: #CCCCCC; }
+    .tier.impressive { border-left-color: #595959; }
+    .tier.excellent  { border-left-color: #5E6B52; }
 
     .tier-label {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.6px; margin-bottom: 5px;
+      font-size: 9px; font-weight: 400; text-transform: uppercase;
+      letter-spacing: 0.12em; margin-bottom: 7px; color: #595959;
     }
-    .tier.solid      .tier-label { color: #3451b2; }
-    .tier.impressive .tier-label { color: #1a7a3a; }
-    .tier.excellent  .tier-label { color: #9a6800; }
+    .tier.excellent .tier-label { color: #5E6B52; }
 
-    .tier-text { font-size: 12px; line-height: 1.5; color: #3a3a3a; }
+    .tier-text { font-size: 12px; line-height: 1.6; color: #000; }
 
-    /* Status section */
+    /* ─── STATUS SECTION ─────────────────────────────────────── */
     .status-section {
-      margin-top: 16px; padding-top: 14px;
-      border-top: 1px solid #f0f0f0;
+      margin-top: 20px; padding-top: 16px;
+      border-top: 1px solid #F9F9F6;
     }
 
     .status-labels-row {
-      display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 5px;
     }
 
-    .status-inputs-row {
-      display: flex; align-items: center; gap: 8px;
-    }
+    .status-inputs-row { display: flex; align-items: center; gap: 8px; }
 
     .status-field-label {
-      font-size: 10px; font-weight: 700; color: #6e6e73;
-      text-transform: uppercase; letter-spacing: 0.5px;
+      font-size: 9px; font-weight: 400; color: #CCCCCC;
+      text-transform: uppercase; letter-spacing: 0.12em;
     }
 
     .status-select, .status-date, .status-current, .status-notes {
-      font-size: 12px; border: 1px solid #d0d0d0;
-      border-radius: 6px; padding: 5px 8px; background: #fff;
-      color: #1d1d1f; font-family: inherit; height: 32px;
+      font-size: 12px; border: 1px solid #CCCCCC;
+      padding: 5px 8px; background: #fff; color: #000;
+      font-family: inherit; height: 32px; border-radius: 0;
     }
-    .status-select  { width: 130px; }
+    .status-select {
+      width: 130px; cursor: pointer;
+      -webkit-appearance: none; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5'%3E%3Cpath d='M0 0l4 5 4-5z' fill='%23595959'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 8px center;
+      padding-right: 22px;
+    }
     .status-date    { width: 140px; }
     .status-current { width: 110px; }
     .status-notes   { flex: 1; min-width: 160px; }
 
-    .save-btn {
-      font-size: 12px; font-weight: 600;
-      background: #1d1d1f; color: #fff; border: none;
-      border-radius: 6px; padding: 6px 14px; cursor: pointer; white-space: nowrap;
+    .status-select:focus, .status-date:focus,
+    .status-current:focus, .status-notes:focus {
+      outline: none; border-color: #000;
     }
-    .save-btn:hover { background: #3a3a3a; }
+
+    .save-btn {
+      font-size: 10px; font-weight: 400; color: #fff;
+      background: #5E6B52; border: 1px solid #5E6B52;
+      padding: 0 16px; cursor: pointer; white-space: nowrap;
+      height: 32px; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .save-btn:hover { background: #4a5540; border-color: #4a5540; }
 
     .saved-flash {
-      font-size: 11px; color: #1a7a3a; font-weight: 600;
+      font-size: 9px; color: #5E6B52; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
       opacity: 0; transition: opacity 0.3s;
     }
     .saved-flash.show { opacity: 1; }
 
-    /* History */
-    .history-section { margin-top: 12px; }
+    /* ─── HISTORY ────────────────────────────────────────────── */
+    .history-section { margin-top: 14px; }
 
     .history-select {
-      font-size: 12px; border: 1px solid #d0d0d0;
-      border-radius: 6px; padding: 4px 8px; background: #fff;
-      color: #1d1d1f; width: 100%; margin-top: 5px; cursor: pointer;
+      font-size: 12px; border: 1px solid #CCCCCC;
+      padding: 5px 8px; background: #F9F9F6; color: #000;
+      width: 100%; margin-top: 5px; cursor: pointer;
+      border-radius: 0; font-family: inherit;
     }
 
     .history-detail {
-      font-size: 12px; color: #3a3a3a; line-height: 1.65;
-      background: #f9f9f9; border-radius: 8px;
-      padding: 10px 13px; margin-top: 8px;
+      font-size: 12px; color: #595959; line-height: 1.65;
+      background: #F9F9F6; padding: 10px 14px; margin-top: 6px;
+      border-left: 2px solid #CCCCCC;
     }
 
-    /* Status read-only indicator */
+    /* ─── STATUS BADGE (read-only) ───────────────────────────── */
     .status-indicator {
-      display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
     }
 
-    .status-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-    }
-    .status-dot.not-started { background: #d0d0d0; }
-    .status-dot.in-progress { background: #3451b2; }
-    .status-dot.completed   { background: #1a7a3a; }
-    .status-text { font-size: 11px; color: #6e6e73; font-weight: 500; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .status-dot.not-started { background: #CCCCCC; }
+    .status-dot.in-progress { background: #000; }
+    .status-dot.completed   { background: #5E6B52; }
+    .status-text { font-size: 11px; color: #595959; letter-spacing: 0.04em; }
 
-    /* Add buttons */
+    /* ─── ADD BUTTONS ────────────────────────────────────────── */
     .add-kr-btn {
       display: flex; align-items: center; gap: 6px;
-      margin: 12px 28px 20px;
-      font-size: 12px; font-weight: 600; color: #3451b2;
-      background: none; border: 1px dashed #b0c0ff; border-radius: 8px;
+      margin: 16px 32px 24px;
+      font-size: 10px; font-weight: 400; color: #595959;
+      background: none; border: 1px dashed #CCCCCC;
       padding: 8px 14px; cursor: pointer; width: fit-content;
+      letter-spacing: 0.08em; text-transform: uppercase;
     }
-    .add-kr-btn:hover { background: #f0f4ff; }
+    .add-kr-btn:hover { color: #000; border-color: #000; background: #F9F9F6; }
 
     .add-objective-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      font-size: 13px; font-weight: 600; color: #6e6e73;
-      background: #fff; border: 1px dashed #c0c0c0; border-radius: 16px;
-      padding: 16px; cursor: pointer; width: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 400; color: #595959;
+      background: #fff; border: 1px dashed #CCCCCC;
+      padding: 20px; cursor: pointer; width: 100%;
+      letter-spacing: 0.08em; text-transform: uppercase;
     }
-    .add-objective-btn:hover { background: #f5f5f7; color: #1d1d1f; border-color: #999; }
+    .add-objective-btn:hover { color: #000; border-color: #000; background: #F9F9F6; }
 
-    /* Modals */
+    /* ─── MODALS ─────────────────────────────────────────────── */
     .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
       display: flex; align-items: center; justify-content: center;
       z-index: 100; padding: 20px;
     }
 
     .modal-box {
-      background: #fff; border-radius: 16px;
-      padding: 28px; width: 100%; max-width: 480px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      background: #fff; border: 1px solid #CCCCCC;
+      padding: 32px; width: 100%; max-width: 480px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
       display: flex; flex-direction: column; gap: 12px;
     }
 
     .modal-box.wide { max-width: 600px; max-height: 90vh; overflow-y: auto; }
 
-    .modal-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-
-    .modal-box label {
-      font-size: 11px; font-weight: 700; color: #6e6e73;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      margin-top: 4px;
+    .modal-box h3 {
+      font-family: "ITC Elan Pro", Georgia, "Times New Roman", serif;
+      font-size: 18px; font-weight: normal;
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px;
     }
 
-    .required { color: #c0392b; }
+    .modal-box label {
+      font-size: 9px; font-weight: 400; color: #595959;
+      text-transform: uppercase; letter-spacing: 0.12em; margin-top: 4px;
+    }
+
+    .required { color: #000; }
 
     .modal-box input[type="text"],
     .modal-box input[type="password"],
     .modal-box textarea {
-      font-size: 13px; border: 1px solid #d0d0d0;
-      border-radius: 8px; padding: 8px 12px; width: 100%;
-      font-family: inherit; color: #1d1d1f; resize: vertical;
+      font-size: 13px; border: 1px solid #CCCCCC;
+      padding: 8px 12px; width: 100%;
+      font-family: inherit; color: #000; resize: vertical; border-radius: 0;
     }
     .modal-box input:focus, .modal-box textarea:focus {
-      outline: none; border-color: #3451b2; box-shadow: 0 0 0 3px rgba(52,81,178,0.12);
+      outline: none; border-color: #000;
     }
 
-    .modal-error { font-size: 12px; color: #c0392b; min-height: 16px; }
+    .modal-error { font-size: 11px; color: #000; min-height: 16px; letter-spacing: 0.03em; }
 
     .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
 
     .btn-secondary {
-      font-size: 13px; font-weight: 500; color: #1d1d1f;
-      background: none; border: 1px solid #d0d0d0;
-      border-radius: 8px; padding: 7px 16px; cursor: pointer;
+      font-size: 10px; font-weight: 400; color: #595959;
+      background: none; border: 1px solid #CCCCCC;
+      padding: 8px 16px; cursor: pointer;
+      letter-spacing: 0.08em; text-transform: uppercase;
     }
-    .btn-secondary:hover { background: #f5f5f7; }
+    .btn-secondary:hover { border-color: #000; color: #000; }
 
     @media (max-width: 600px) {
-      header { padding: 14px 16px; }
-      main { padding: 20px 12px; }
-      .objective-header, .kr-item { padding: 16px 16px; }
+      header { padding: 12px 16px; }
+      .header-divider, .header-page-label { display: none; }
+      main { padding: 24px 12px; }
+      .objective-header, .kr-item { padding: 18px 16px; }
       .tiers { grid-template-columns: 1fr; }
+      .tier + .tier { border-top: 1px solid #CCCCCC; }
     }
   </style>
 </head>
@@ -303,8 +333,12 @@
 
 <header>
   <div class="header-left">
-    <h1 id="page-title">OKRs</h1>
-    <span class="year-badge" id="page-year"></span>
+    <div class="header-brand">
+      <img class="header-logo" src="brandassets/ARC_Bird_K.png" alt="Arc'teryx">
+      <span class="header-wordmark">Arc'teryx</span>
+    </div>
+    <div class="header-divider"></div>
+    <span class="header-page-label">OKR Tracker 2026</span>
     <span class="author-badge" id="author-badge" style="display:none">Author</span>
   </div>
   <div class="header-right">
@@ -418,9 +452,7 @@
 
   // ─── RENDER ────────────────────────────────────────────────────────────────
   function render() {
-    document.getElementById('page-title').textContent = `${data.owner}'s OKRs`;
-    document.getElementById('page-year').textContent  = data.year;
-    document.title = `${data.owner}'s OKRs ${data.year}`;
+    document.title = `Arc'teryx OKR Tracker ${data.year}`;
 
     document.getElementById('author-badge').style.display = isAuthor ? '' : 'none';
     document.getElementById('export-btn').style.display   = isAuthor ? '' : 'none';
