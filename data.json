@@ -162,5 +162,41 @@
         }
       ]
     }
+    {
+      "id": 5,
+      "title": "ALC — Arc'teryx Leadership Code",
+      "keyResults": [
+        {
+          "id": "O5-KR1",
+          "title": "Innovation",
+          "description": "Foster a culture of innovation within Retail & Wholesale Technology by creating space for new ideas, experimentation, and calculated risk-taking.",
+          "tiers": {
+            "solid": "At least one structured innovation initiative (e.g. hackathon, spike, or experimentation sprint) run within the year, with outcomes shared across the team.",
+            "impressive": "Solid + at least one idea originating from the team moves into the roadmap or is adopted as a practice change.",
+            "excellent": "Impressive + innovation contributions recognised at a leadership level; team members proactively bring forward ideas without prompting."
+          }
+        },
+        {
+          "id": "O5-KR2",
+          "title": "Communication",
+          "description": "Maintain clear, consistent, and transparent communication across the team and with senior stakeholders — ensuring alignment on priorities, progress, and decisions.",
+          "tiers": {
+            "solid": "Regular cadence of team and stakeholder communications maintained (e.g. team updates, leadership reporting) with no significant alignment gaps.",
+            "impressive": "Solid + feedback from team and stakeholders reflects high clarity and confidence in direction; no surprises at key milestones.",
+            "excellent": "Impressive + communication style recognised as a model within the broader leadership group; proactively shapes narratives rather than responding to them."
+          }
+        },
+        {
+          "id": "O5-KR3",
+          "title": "Vision & Strategy",
+          "description": "Articulate and sustain a clear multi-year technology vision for Retail & Wholesale that connects team work to Arc'teryx's broader strategic direction.",
+          "tiers": {
+            "solid": "A documented Retail & Wholesale Technology vision and 2026 strategy communicated to the team and referenced in planning.",
+            "impressive": "Solid + vision actively used to prioritise and deprioritise work; team can articulate how their work connects to the broader strategy.",
+            "excellent": "Impressive + vision recognised and cited by senior leadership as a benchmark for strategic clarity within the technology organisation."
+          }
+        }
+      ]
+    }
   ]
 }
