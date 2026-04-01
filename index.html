@@ -106,15 +106,17 @@
     }
 
     .objective-number {
-      font-size: 11px; font-weight: 400; color: #CCCCCC;
+      font-size: 9px; font-weight: 400; color: #000;
       letter-spacing: 0.1em; flex-shrink: 0;
+      background: #CCCCCC; padding: 3px 8px;
+      text-transform: uppercase;
     }
 
     .objective-title {
-      font-family: "ITC Elan Pro", Georgia, "Times New Roman", serif;
-      font-size: 21px; font-weight: normal;
-      letter-spacing: 0.05em; text-transform: uppercase;
-      line-height: 1; flex: 1; color: #000;
+      font-family: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 18px; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      line-height: 1.1; flex: 1; color: #000;
     }
 
     .edit-icon {
@@ -136,8 +138,10 @@
     .kr-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
 
     .kr-id {
-      font-size: 10px; font-weight: 400; color: #CCCCCC;
-      letter-spacing: 0.08em; flex-shrink: 0; margin-top: 3px;
+      font-size: 9px; font-weight: 400; color: #fff;
+      letter-spacing: 0.08em; flex-shrink: 0;
+      background: #5E6B52; padding: 3px 8px;
+      text-transform: uppercase; white-space: nowrap;
     }
 
     .kr-title { font-size: 14px; font-weight: 400; flex: 1; color: #000; line-height: 1.35; }
@@ -153,11 +157,11 @@
       gap: 0; border: 1px solid #CCCCCC; margin-top: 4px;
     }
 
-    .tier { background: #fff; padding: 14px 16px; border-left: 3px solid transparent; }
+    .tier { padding: 14px 16px; border-left: 3px solid transparent; }
     .tier + .tier { border-top: none; }
-    .tier.solid      { border-left-color: #CCCCCC; }
-    .tier.impressive { border-left-color: #595959; }
-    .tier.excellent  { border-left-color: #5E6B52; }
+    .tier.solid      { background: #F9F9F6; border-left-color: #CCCCCC; }
+    .tier.impressive { background: #EBEBEB; border-left-color: #595959; }
+    .tier.excellent  { background: #EEF2EB; border-left-color: #5E6B52; }
 
     .tier-label {
       font-size: 9px; font-weight: 400; text-transform: uppercase;
