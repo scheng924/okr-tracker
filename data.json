@@ -145,22 +145,9 @@
           "title": "Location Deployments",
           "description": "100% of 16 planned store deployments activated on time across North America (11) and Europe (5).",
           "metrics": [
-            "North America — Oakridge",
-            "North America — Markville (Markham)",
-            "North America — Masonville",
-            "North America — Whistler (Relocation)",
-            "North America — St. Catharines (Relocation)",
-            "North America — Burlingame",
-            "North America — Southdale",
-            "North America — Abbot Kinney",
-            "North America — Stanford Centre (Relocation)",
-            "North America — Seattle PO / Tulalip (Relocation)",
-            "North America — Valley Fair (Relocation)",
-            "Europe — Trattnerhaf, Vienna",
-            "Europe — Pilestraede, Copenhagen",
-            "Europe — Karl Johans Gate",
-            "Europe — Ingolstadt Outlet",
-            "Europe — Brompton Road"
+            "% of 16 locations activated on or before target date",
+            "Number of P1 incidents within 30 days of go-live per location",
+            "Average days from deployment start to go-live (cycle time)"
           ],
           "tiers": {
             "solid": "100% of planned location deployments activated on time.",
@@ -188,6 +175,11 @@
           "id": "O5-KR1",
           "title": "Innovation",
           "description": "Foster a culture of innovation within Retail & Wholesale Technology by creating space for new ideas, experimentation, and calculated risk-taking.",
+          "metrics": [
+            "Number of structured innovation initiatives run per year",
+            "Number of ideas submitted by team members (bottom-up)",
+            "Number of ideas that moved into roadmap or practice adoption"
+          ],
           "tiers": {
             "solid": "At least one structured innovation initiative (e.g. hackathon, spike, or experimentation sprint) run within the year, with outcomes shared across the team.",
             "impressive": "Solid + at least one idea originating from the team moves into the roadmap or is adopted as a practice change.",
@@ -198,6 +190,11 @@
           "id": "O5-KR2",
           "title": "Communication",
           "description": "Maintain clear, consistent, and transparent communication across the team and with senior stakeholders — ensuring alignment on priorities, progress, and decisions.",
+          "metrics": [
+            "Cadence adherence — % of scheduled comms delivered on time",
+            "Peakon score on 'I know what is expected of me' and 'Leadership communicates openly'",
+            "Number of stakeholder escalations due to alignment gaps (target: zero)"
+          ],
           "tiers": {
             "solid": "Regular cadence of team and stakeholder communications maintained (e.g. team updates, leadership reporting) with no significant alignment gaps.",
             "impressive": "Solid + feedback from team and stakeholders reflects high clarity and confidence in direction; no surprises at key milestones.",
@@ -208,6 +205,11 @@
           "id": "O5-KR3",
           "title": "Vision & Strategy",
           "description": "Articulate and sustain a clear multi-year technology vision for Retail & Wholesale that connects team work to Arc'teryx's broader strategic direction.",
+          "metrics": [
+            "% of team who can articulate the vision in their own words (pulse survey)",
+            "% of quarterly planning decisions explicitly linked back to the vision document",
+            "Number of times vision is cited or referenced in leadership forums"
+          ],
           "tiers": {
             "solid": "A documented Retail & Wholesale Technology vision and 2026 strategy communicated to the team and referenced in planning.",
             "impressive": "Solid + vision actively used to prioritise and deprioritise work; team can articulate how their work connects to the broader strategy.",
