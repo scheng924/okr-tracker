@@ -155,25 +155,39 @@
 
     .tier-text { font-size: 12px; line-height: 1.5; color: #3a3a3a; }
 
-    /* Status row (author only) */
-    .status-row {
-      display: flex; align-items: center; gap: 8px;
-      margin-top: 14px; flex-wrap: wrap;
+    /* Status section */
+    .status-section {
+      margin-top: 16px; padding-top: 14px;
+      border-top: 1px solid #f0f0f0;
     }
 
-    .status-label { font-size: 11px; font-weight: 600; color: #6e6e73; }
+    .status-form-row {
+      display: flex; align-items: flex-end; gap: 8px; flex-wrap: wrap;
+    }
 
-    .tier-select, .current-input, .notes-input {
+    .status-field-group {
+      display: flex; flex-direction: column; gap: 3px;
+    }
+
+    .status-field-label {
+      font-size: 10px; font-weight: 700; color: #6e6e73;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    .status-select, .status-date, .status-current, .status-notes {
       font-size: 12px; border: 1px solid #d0d0d0;
-      border-radius: 6px; padding: 4px 8px; background: #fff; color: #1d1d1f;
+      border-radius: 6px; padding: 5px 8px; background: #fff;
+      color: #1d1d1f; font-family: inherit;
     }
-    .current-input { width: 140px; }
-    .notes-input { flex: 1; min-width: 160px; }
+    .status-select  { min-width: 120px; }
+    .status-date    { width: 148px; }
+    .status-current { width: 110px; }
+    .status-notes   { flex: 1; min-width: 160px; }
 
     .save-btn {
       font-size: 12px; font-weight: 600;
       background: #1d1d1f; color: #fff; border: none;
-      border-radius: 6px; padding: 4px 12px; cursor: pointer;
+      border-radius: 6px; padding: 6px 14px; cursor: pointer; white-space: nowrap;
     }
     .save-btn:hover { background: #3a3a3a; }
 
@@ -183,17 +197,32 @@
     }
     .saved-flash.show { opacity: 1; }
 
+    /* History */
+    .history-section { margin-top: 12px; }
+
+    .history-select {
+      font-size: 12px; border: 1px solid #d0d0d0;
+      border-radius: 6px; padding: 4px 8px; background: #fff;
+      color: #1d1d1f; width: 100%; margin-top: 5px; cursor: pointer;
+    }
+
+    .history-detail {
+      font-size: 12px; color: #3a3a3a; line-height: 1.65;
+      background: #f9f9f9; border-radius: 8px;
+      padding: 10px 13px; margin-top: 8px;
+    }
+
     /* Status read-only indicator */
     .status-indicator {
-      display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;
+      display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
     }
+
     .status-dot {
-      width: 8px; height: 8px; border-radius: 50%;
+      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
     }
-    .status-dot.none       { background: #d0d0d0; }
-    .status-dot.solid      { background: #3451b2; }
-    .status-dot.impressive { background: #1a7a3a; }
-    .status-dot.excellent  { background: #9a6800; }
+    .status-dot.not-started { background: #d0d0d0; }
+    .status-dot.in-progress { background: #3451b2; }
+    .status-dot.completed   { background: #1a7a3a; }
     .status-text { font-size: 11px; color: #6e6e73; font-weight: 500; }
 
     /* Add buttons */
@@ -380,7 +409,11 @@
   }
 
   function getTracking(krId) {
-    return tracking[krId] || { achievedTier: null, current: '', notes: '' };
+    return tracking[krId] || { status: 'not-started', date: '', current: '', notes: '', history: [] };
+  }
+
+  function statusLabel(s) {
+    return { 'not-started': 'Not Started', 'in-progress': 'In Progress', 'completed': 'Completed' }[s] || s;
   }
 
   // ─── RENDER ────────────────────────────────────────────────────────────────
@@ -426,8 +459,6 @@
           ? `<ul class="kr-metrics">${kr.metrics.map(m => `<li>${escHtml(m)}</li>`).join('')}</ul>`
           : '';
 
-        const tierClass = tier => `tier ${tier}${t.achievedTier === tier ? ' achieved' : ''}`;
-
         item.innerHTML = `
           <div class="kr-header">
             <span class="kr-id">${escHtml(kr.id)}</span>
@@ -437,15 +468,15 @@
           <p class="kr-description">${escHtml(kr.description)}</p>
           ${metricsHtml}
           <div class="tiers">
-            <div class="${tierClass('solid')}">
+            <div class="tier solid">
               <div class="tier-label">Solid</div>
               <div class="tier-text">${escHtml(kr.tiers.solid)}</div>
             </div>
-            <div class="${tierClass('impressive')}">
+            <div class="tier impressive">
               <div class="tier-label">Impressive</div>
               <div class="tier-text">${escHtml(kr.tiers.impressive)}</div>
             </div>
-            <div class="${tierClass('excellent')}">
+            <div class="tier excellent">
               <div class="tier-label">Excellent</div>
               <div class="tier-text">${escHtml(kr.tiers.excellent)}</div>
             </div>
@@ -487,59 +518,117 @@
 
   function renderStatusRow(krId, t) {
     const flashId = 'flash-' + krId.replace(/[^a-z0-9]/gi, '');
+    const today   = new Date().toISOString().split('T')[0];
+    const curDate = t.date || today;
+    const history = t.history || [];
+
+    const historyOpts = history.slice().reverse().map((h, i) => {
+      const lbl = `${h.date}  ·  ${statusLabel(h.status)}${h.current ? '  ·  ' + h.current : ''}`;
+      return `<option value="${i}">${escHtml(lbl)}</option>`;
+    }).join('');
+
     return `
-      <div class="status-row">
-        <span class="status-label">Status</span>
-        <select class="tier-select">
-          <option value="">— not started —</option>
-          <option value="solid"      ${t.achievedTier === 'solid'       ? 'selected' : ''}>Solid</option>
-          <option value="impressive" ${t.achievedTier === 'impressive'  ? 'selected' : ''}>Impressive</option>
-          <option value="excellent"  ${t.achievedTier === 'excellent'   ? 'selected' : ''}>Excellent</option>
-        </select>
-        <span class="status-label">Current</span>
-        <input class="current-input" type="text" placeholder="e.g. 75%" value="${escAttr(t.current || '')}">
-        <input class="notes-input" type="text" placeholder="Notes…" value="${escAttr(t.notes || '')}">
-        <button class="save-btn">Save</button>
-        <span class="saved-flash" id="${flashId}">Saved</span>
+      <div class="status-section">
+        <div class="status-form-row">
+          <div class="status-field-group">
+            <span class="status-field-label">Status</span>
+            <select class="status-select">
+              <option value="not-started" ${(!t.status || t.status === 'not-started') ? 'selected' : ''}>Not Started</option>
+              <option value="in-progress" ${t.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
+              <option value="completed"   ${t.status === 'completed'   ? 'selected' : ''}>Completed</option>
+            </select>
+          </div>
+          <div class="status-field-group">
+            <span class="status-field-label">Date</span>
+            <input class="status-date" type="date" value="${escAttr(curDate)}">
+          </div>
+          <div class="status-field-group">
+            <span class="status-field-label">Current</span>
+            <input class="status-current" type="text" placeholder="e.g. 75%" value="${escAttr(t.current || '')}">
+          </div>
+          <div class="status-field-group" style="flex:1">
+            <span class="status-field-label">Notes</span>
+            <input class="status-notes" type="text" placeholder="Notes…" value="${escAttr(t.notes || '')}">
+          </div>
+          <div class="status-field-group">
+            <span class="status-field-label">&nbsp;</span>
+            <div style="display:flex;align-items:center;gap:8px">
+              <button class="save-btn">Log Update</button>
+              <span class="saved-flash" id="${flashId}">Saved</span>
+            </div>
+          </div>
+        </div>
+        ${history.length ? `
+        <div class="history-section">
+          <span class="status-field-label">History (${history.length} ${history.length === 1 ? 'entry' : 'entries'})</span>
+          <select class="history-select">
+            <option value="">— select an entry to view —</option>
+            ${historyOpts}
+          </select>
+          <div class="history-detail" style="display:none"></div>
+        </div>` : ''}
       </div>
     `;
   }
 
   function renderStatusBadge(t) {
-    if (!t.achievedTier && !t.current) return '';
-    const tierLabel = t.achievedTier
-      ? t.achievedTier.charAt(0).toUpperCase() + t.achievedTier.slice(1)
-      : 'In progress';
-    const parts = [tierLabel];
+    if (!t.history || !t.history.length) return '';
+    const status = t.status || 'not-started';
+    const parts  = [statusLabel(status)];
     if (t.current) parts.push(t.current);
+    if (t.date)    parts.push(t.date);
     if (t.notes)   parts.push(t.notes);
     return `
       <div class="status-indicator">
-        <span class="status-dot ${t.achievedTier || 'none'}"></span>
+        <span class="status-dot ${status}"></span>
         <span class="status-text">${escHtml(parts.join(' · '))}</span>
+        ${t.history.length > 1 ? `<span class="status-text">(${t.history.length} updates)</span>` : ''}
       </div>
     `;
   }
 
   function bindStatusRow(item, krId) {
     const flashId = 'flash-' + krId.replace(/[^a-z0-9]/gi, '');
+
     item.querySelector('.save-btn').addEventListener('click', () => {
-      const tier    = item.querySelector('.tier-select').value;
-      const current = item.querySelector('.current-input').value;
-      const notes   = item.querySelector('.notes-input').value;
+      const status  = item.querySelector('.status-select').value;
+      const date    = item.querySelector('.status-date').value;
+      const current = item.querySelector('.status-current').value;
+      const notes   = item.querySelector('.status-notes').value;
 
-      tracking[krId] = { achievedTier: tier || null, current, notes };
+      if (!tracking[krId]) tracking[krId] = { status: 'not-started', date: '', current: '', notes: '', history: [] };
+      if (!tracking[krId].history) tracking[krId].history = [];
+
+      tracking[krId].status  = status;
+      tracking[krId].date    = date;
+      tracking[krId].current = current;
+      tracking[krId].notes   = notes;
+      tracking[krId].history.push({ date, status, current, notes });
+
       saveTracking();
-
-      // Re-highlight tier cards
-      ['solid','impressive','excellent'].forEach((t, i) => {
-        const el = item.querySelectorAll('.tier')[i];
-        el.className = `tier ${t}${tier === t ? ' achieved' : ''}`;
-      });
+      render();
 
       const flash = document.getElementById(flashId);
       if (flash) { flash.classList.add('show'); setTimeout(() => flash.classList.remove('show'), 1500); }
     });
+
+    const historySelect = item.querySelector('.history-select');
+    if (historySelect) {
+      historySelect.addEventListener('change', () => {
+        const detail = item.querySelector('.history-detail');
+        if (!historySelect.value) { detail.style.display = 'none'; return; }
+
+        const t       = getTracking(krId);
+        const history = t.history.slice().reverse();
+        const entry   = history[parseInt(historySelect.value)];
+
+        detail.innerHTML =
+          `<strong>${escHtml(entry.date)}</strong> &nbsp;·&nbsp; ${escHtml(statusLabel(entry.status))}` +
+          (entry.current ? ` &nbsp;·&nbsp; <em>${escHtml(entry.current)}</em>` : '') +
+          (entry.notes   ? ` &nbsp;—&nbsp; ${escHtml(entry.notes)}` : '');
+        detail.style.display = '';
+      });
+    }
   }
 
   // ─── AUTH ──────────────────────────────────────────────────────────────────
