@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simon's OKRs 2026</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 24px 40px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    header .year {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6e6e73;
+      background: #f0f0f3;
+      border-radius: 6px;
+      padding: 2px 8px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .objective-card {
+      background: #fff;
+      border-radius: 16px;
+      border: 1px solid #e0e0e0;
+      overflow: hidden;
+    }
+
+    .objective-header {
+      padding: 20px 28px;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .objective-number {
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      background: #1d1d1f;
+      border-radius: 8px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .objective-title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+    }
+
+    .kr-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kr-item {
+      padding: 20px 28px;
+      border-bottom: 1px solid #f5f5f7;
+    }
+
+    .kr-item:last-child {
+      border-bottom: none;
+    }
+
+    .kr-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .kr-id {
+      font-size: 11px;
+      font-weight: 600;
+      color: #6e6e73;
+      background: #f5f5f7;
+      border-radius: 5px;
+      padding: 2px 6px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .kr-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.1px;
+    }
+
+    .kr-description {
+      font-size: 13px;
+      color: #6e6e73;
+      line-height: 1.55;
+      margin: 0 0 14px 0;
+      padding-left: 0;
+    }
+
+    .kr-metrics {
+      margin: 10px 0 14px 0;
+      padding-left: 16px;
+    }
+
+    .kr-metrics li {
+      font-size: 12px;
+      color: #6e6e73;
+      line-height: 1.6;
+    }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .tier {
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .tier.solid    { background: #f0f4ff; border: 1px solid #d0dcff; }
+    .tier.impressive { background: #f0faf4; border: 1px solid #b8e8c8; }
+    .tier.excellent  { background: #fffbf0; border: 1px solid #f5e0a0; }
+
+    .tier-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 5px;
+    }
+
+    .tier.solid     .tier-label { color: #3451b2; }
+    .tier.impressive .tier-label { color: #1a7a3a; }
+    .tier.excellent  .tier-label { color: #9a6800; }
+
+    .tier-text {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #3a3a3a;
+    }
+
+    .tier.achieved {
+      outline: 2px solid currentColor;
+      outline-offset: -2px;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .status-label {
+      font-size: 12px;
+      color: #6e6e73;
+      font-weight: 500;
+    }
+
+    .tier-select {
+      font-size: 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 6px;
+      padding: 3px 8px;
+      background: #fff;
+      color: #1d1d1f;
+      cursor: pointer;
+    }
+
+    .current-input {
+      font-size: 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 6px;
+      padding: 3px 8px;
+      background: #fff;
+      color: #1d1d1f;
+      width: 180px;
+    }
+
+    .notes-input {
+      font-size: 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 6px;
+      padding: 3px 8px;
+      background: #fff;
+      color: #1d1d1f;
+      flex: 1;
+    }
+
+    .save-btn {
+      font-size: 12px;
+      font-weight: 600;
+      background: #1d1d1f;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 4px 12px;
+      cursor: pointer;
+    }
+
+    .save-btn:hover { background: #3a3a3a; }
+
+    .saved-flash {
+      font-size: 11px;
+      color: #1a7a3a;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .saved-flash.show { opacity: 1; }
+
+    @media (max-width: 600px) {
+      .tiers { grid-template-columns: 1fr; }
+      header { padding: 16px 20px; }
+      main { padding: 20px 12px; }
+      .objective-header, .kr-item { padding: 16px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1 id="page-title">OKRs</h1>
+  <span class="year" id="page-year"></span>
+</header>
+
+<main id="app"></main>
+
+<script>
+  const OKR_DATA = {"year":2026,"owner":"Simon","objectives":[{"id":1,"title":"Rapidly deliver with quality","keyResults":[{"id":"O1-KR1","title":"Delivery Predictability & Agile Maturity","description":"Achieve a high completed-vs-committed delivery ratio and ensure sprint tickets meet the Definition of Done (DoD) across all Retail & Wholesale delivery squads.","tiers":{"solid":"80% completed vs. committed; 80% DoD adherence.","impressive":"85% completed vs. committed; 85% DoD adherence.","excellent":"90%+ completed vs. committed; 90%+ DoD adherence."},"current":null,"achievedTier":null,"notes":""},{"id":"O1-KR2","title":"Testing Automation & Quality","description":"Increase automated test and regression coverage across apps in Retail Commerce, Retail Digital workspace, across desktop and mobile form factors.","tiers":{"solid":"40% overall automated test coverage.","impressive":"60% overall automated test coverage.","excellent":"80% overall automated test coverage."},"current":null,"achievedTier":null,"notes":""},{"id":"O1-KR3","title":"AI-Assisted Productivity","description":"Increase the percentage of product delivery work supported by AI-assisted tooling across Retail & Wholesale Technology — measured across four output types: requirements & user stories, data mapping artifacts, delivery scoping cycle time, and active use of a Retail & Wholesale domain knowledge base.","metrics":["Requirements & user stories — % of sprint stories with AI-assisted first draft","Data mapping artifacts — % of integration and data mapping docs AI-generated as first draft","Delivery scoping — % of initiatives scoped within 1 sprint using AI-assisted analysis","Domain knowledge base — Retail & Wholesale knowledge base built, maintained, and actively referenced by squads"],"tiers":{"solid":"20% combined AI-assisted contributions across the four output types, measured quarterly from Q2 2026.","impressive":"30% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads.","excellent":"40% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads."},"current":null,"achievedTier":null,"notes":""}]},{"id":2,"title":"Scale with Platforms","keyResults":[{"id":"O2-KR1","title":"Platform Services Adoption","description":"Drive global platform scale by building any new Retail & Wholesale capabilities via adoption of the approved and available Omnichannel Platform (OCP) services and ensuring all new initiatives requiring services assist funding and building out of OCP domains.","tiers":{"solid":"90% of new integrations built on new platform services where available.","impressive":"Solid + One extra unfunded capabilities migrate to new OCP services from legacy services.","excellent":"Solid + two extra unfunded capabilities migrate to new OCP services from legacy services."},"current":null,"achievedTier":null,"notes":""},{"id":"O2-KR2","title":"System Reliability & Security","description":"Maintain critical platform uptime across POS, Workforce Management, and Wholesale Order platforms and ensure rapid remediation of critical vulnerabilities detected.","tiers":{"solid":"99.0% uptime; critical vulnerabilities addressed in 3 days.","impressive":"99.5% uptime; critical vulnerabilities addressed in 48 hours.","excellent":"99.9% uptime; critical vulnerabilities addressed in 24 hours."},"current":null,"achievedTier":null,"notes":""}]}]};
+
+  const DATA_KEY = 'okr_tracker_state';
+
+  async function loadOKRs() {
+    return OKR_DATA;
+  }
+
+  function loadState() {
+    try { return JSON.parse(localStorage.getItem(DATA_KEY)) || {}; }
+    catch { return {}; }
+  }
+
+  function saveState(state) {
+    localStorage.setItem(DATA_KEY, JSON.stringify(state));
+  }
+
+  function getKRState(state, krId) {
+    return state[krId] || { achievedTier: null, current: '', notes: '' };
+  }
+
+  function render(data, state) {
+    document.title = `${data.owner}'s OKRs ${data.year}`;
+    document.getElementById('page-title').textContent = `${data.owner}'s OKRs`;
+    document.getElementById('page-year').textContent = data.year;
+
+    const app = document.getElementById('app');
+    app.innerHTML = '';
+
+    data.objectives.forEach(obj => {
+      const card = document.createElement('div');
+      card.className = 'objective-card';
+
+      card.innerHTML = `
+        <div class="objective-header">
+          <div class="objective-number">${String(obj.id).padStart(2,'0')}</div>
+          <div class="objective-title">${obj.title}</div>
+        </div>
+        <div class="kr-list" id="krs-${obj.id}"></div>
+      `;
+      app.appendChild(card);
+
+      const krList = card.querySelector(`#krs-${obj.id}`);
+
+      obj.keyResults.forEach(kr => {
+        const s = getKRState(state, kr.id);
+        const item = document.createElement('div');
+        item.className = 'kr-item';
+
+        const metricsHtml = kr.metrics
+          ? `<ul class="kr-metrics">${kr.metrics.map(m => `<li>${m}</li>`).join('')}</ul>`
+          : '';
+
+        const tierClass = (tier) => tier === s.achievedTier ? `tier ${tier} achieved` : `tier ${tier}`;
+
+        item.innerHTML = `
+          <div class="kr-header">
+            <span class="kr-id">${kr.id}</span>
+            <span class="kr-title">${kr.title}</span>
+          </div>
+          <p class="kr-description">${kr.description}</p>
+          ${metricsHtml}
+          <div class="tiers">
+            <div class="${tierClass('solid')}">
+              <div class="tier-label">Solid</div>
+              <div class="tier-text">${kr.tiers.solid}</div>
+            </div>
+            <div class="${tierClass('impressive')}">
+              <div class="tier-label">Impressive</div>
+              <div class="tier-text">${kr.tiers.impressive}</div>
+            </div>
+            <div class="${tierClass('excellent')}">
+              <div class="tier-label">Excellent</div>
+              <div class="tier-text">${kr.tiers.excellent}</div>
+            </div>
+          </div>
+          <div class="status-row">
+            <span class="status-label">Status:</span>
+            <select class="tier-select" data-kr="${kr.id}" data-field="achievedTier">
+              <option value="">— not started —</option>
+              <option value="solid"      ${s.achievedTier === 'solid'      ? 'selected' : ''}>Solid</option>
+              <option value="impressive" ${s.achievedTier === 'impressive' ? 'selected' : ''}>Impressive</option>
+              <option value="excellent"  ${s.achievedTier === 'excellent'  ? 'selected' : ''}>Excellent</option>
+            </select>
+            <span class="status-label">Current:</span>
+            <input class="current-input" type="text" placeholder="e.g. 75%" data-kr="${kr.id}" data-field="current" value="${s.current || ''}">
+            <input class="notes-input" type="text" placeholder="Notes…" data-kr="${kr.id}" data-field="notes" value="${s.notes || ''}">
+            <button class="save-btn" data-kr="${kr.id}">Save</button>
+            <span class="saved-flash" id="flash-${kr.id.replace('-','')}">Saved</span>
+          </div>
+        `;
+
+        krList.appendChild(item);
+
+        item.querySelector(`.save-btn[data-kr="${kr.id}"]`).addEventListener('click', () => {
+          const tier = item.querySelector(`select[data-kr="${kr.id}"]`).value;
+          const current = item.querySelector(`input[data-field="current"][data-kr="${kr.id}"]`).value;
+          const notes = item.querySelector(`input[data-field="notes"][data-kr="${kr.id}"]`).value;
+
+          state[kr.id] = { achievedTier: tier || null, current, notes };
+          saveState(state);
+
+          // Flash saved message
+          const flash = document.getElementById(`flash-${kr.id.replace('-','')}`);
+          flash.classList.add('show');
+          setTimeout(() => flash.classList.remove('show'), 1500);
+
+          // Re-highlight tiers
+          ['solid','impressive','excellent'].forEach(t => {
+            const el = item.querySelectorAll('.tier')[['solid','impressive','excellent'].indexOf(t)];
+            el.className = tier === t ? `tier ${t} achieved` : `tier ${t}`;
+          });
+        });
+      });
+    });
+  }
+
+  (async () => {
+    const data = await loadOKRs();
+    const state = loadState();
+    render(data, state);
+  })();
+</script>
+</body>
+</html>

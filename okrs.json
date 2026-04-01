@@ -1,0 +1,89 @@
+{
+  "year": 2026,
+  "owner": "Simon Cheng",
+  "objectives": [
+    {
+      "id": 1,
+      "title": "Rapidly deliver with quality",
+      "keyResults": [
+        {
+          "id": "O1-KR1",
+          "title": "Delivery Predictability & Agile Maturity",
+          "description": "Achieve a high completed-vs-committed delivery ratio and ensure sprint tickets meet the Definition of Done (DoD) across all Retail & Wholesale delivery squads.",
+          "tiers": {
+            "solid": "80% completed vs. committed; 80% DoD adherence.",
+            "impressive": "85% completed vs. committed; 85% DoD adherence.",
+            "excellent": "90%+ completed vs. committed; 90%+ DoD adherence."
+          },
+          "current": null,
+          "achievedTier": null,
+          "notes": ""
+        },
+        {
+          "id": "O1-KR2",
+          "title": "Testing Automation & Quality",
+          "description": "Increase automated test and regression coverage across apps in Retail Commerce, Retail Digital workspace, across desktop and mobile form factors.",
+          "tiers": {
+            "solid": "40% overall automated test coverage.",
+            "impressive": "60% overall automated test coverage.",
+            "excellent": "80% overall automated test coverage."
+          },
+          "current": null,
+          "achievedTier": null,
+          "notes": ""
+        },
+        {
+          "id": "O1-KR3",
+          "title": "AI-Assisted Productivity",
+          "description": "Increase the percentage of product delivery work supported by AI-assisted tooling across Retail & Wholesale Technology — measured across four output types: requirements & user stories, data mapping artifacts, delivery scoping cycle time, and active use of a Retail & Wholesale domain knowledge base.",
+          "metrics": [
+            "Requirements & user stories — % of sprint stories with AI-assisted first draft",
+            "Data mapping artifacts — % of integration and data mapping docs AI-generated as first draft",
+            "Delivery scoping — % of initiatives scoped within 1 sprint using AI-assisted analysis",
+            "Domain knowledge base — Retail & Wholesale knowledge base built, maintained, and actively referenced by squads"
+          ],
+          "tiers": {
+            "solid": "20% combined AI-assisted contributions across the four output types, measured quarterly from Q2 2026.",
+            "impressive": "30% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads.",
+            "excellent": "40% combined AI-assisted contributions; Retail & Wholesale knowledge base v1.0 active and referenced by ≥2 squads."
+          },
+          "current": null,
+          "achievedTier": null,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Scale with Platforms",
+      "keyResults": [
+        {
+          "id": "O2-KR1",
+          "title": "Platform Services Adoption",
+          "description": "Drive global platform scale by building any new Retail & Wholesale capabilities via adoption of the approved and available Omnichannel Platform (OCP) services and ensuring all new initiatives requiring services assist funding and building out of OCP domains.",
+          "tiers": {
+            "solid": "90% of new integrations built on new platform services where available.",
+            "impressive": "Solid + One extra unfunded capabilities migrate to new OCP services from legacy services.",
+            "excellent": "Solid + two extra unfunded capabilities migrate to new OCP services from legacy services."
+          },
+          "current": null,
+          "achievedTier": null,
+          "notes": ""
+        },
+        {
+          "id": "O2-KR2",
+          "title": "System Reliability & Security",
+          "description": "Maintain critical platform uptime across POS, Workforce Management, and Wholesale Order platforms and ensure rapid remediation of critical vulnerabilities detected.",
+          "tiers": {
+            "solid": "99.0% uptime; critical vulnerabilities addressed in 3 days.",
+            "impressive": "99.5% uptime; critical vulnerabilities addressed in 48 hours.",
+            "excellent": "99.9% uptime; critical vulnerabilities addressed in 24 hours."
+          },
+          "current": null,
+          "achievedTier": null,
+          "notes": ""
+        }
+      ]
+    }
+  ]
+}
