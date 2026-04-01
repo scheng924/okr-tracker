@@ -99,19 +99,19 @@
           "title": "Planning & Delivery Framework Completion",
           "description": "100% completion of Planning and Delivery Framework artifacts for prioritized projects greater than USD $250k.",
           "tiers": {
-            "solid": "",
-            "impressive": "",
-            "excellent": ""
+            "solid": "100% of prioritized projects (>$250k) have Planning & Delivery Framework artifacts completed on time.",
+            "impressive": "Solid + artifacts completed ahead of schedule and signed off by stakeholders before project kick-off.",
+            "excellent": "Impressive + framework adoption extends beyond the $250k threshold, with smaller initiatives voluntarily adopting artifacts — indicating cultural embedding across the team."
           }
         },
         {
           "id": "O3-KR4",
-          "title": "Succession Plan",
-          "description": "100% succession plan defined.",
+          "title": "Succession Readiness",
+          "description": "Ensure every critical role within the Retail & Wholesale Technology team has an identified and documented successor, with a development plan in place to close readiness gaps.",
           "tiers": {
-            "solid": "",
-            "impressive": "",
-            "excellent": ""
+            "solid": "100% of critical roles have a named successor documented with an initial readiness assessment completed.",
+            "impressive": "Solid + each successor has an active development plan targeting their specific readiness gaps, reviewed with the individual.",
+            "excellent": "Impressive + at least one successor per critical role has been given a visible stretch assignment or acting opportunity to validate readiness in practice."
           }
         }
       ]
@@ -123,11 +123,11 @@
         {
           "id": "O4-KR1",
           "title": "Scheduling & Forecasting Capabilities",
-          "description": "Deployment ready of scheduling & key forecasting capabilities by October 2026.",
+          "description": "Deliver scheduling and key forecasting capabilities that are fully deployed, adopted, and operational across target locations by October 2026.",
           "tiers": {
-            "solid": "",
-            "impressive": "",
-            "excellent": ""
+            "solid": "Capabilities are deployment-ready and validated in a staging environment by October 2026.",
+            "impressive": "Solid + deployed and live in all target locations by October 2026, with initial user adoption confirmed.",
+            "excellent": "Impressive + measurable operational impact demonstrated (e.g. reduction in manual scheduling effort or improvement in forecast accuracy) within the year."
           }
         },
         {
@@ -135,9 +135,9 @@
           "title": "Quarterly Roadmap Delivery",
           "description": "≥90% of committed quarterly roadmap initiatives delivered within approved scope and timeline.",
           "tiers": {
-            "solid": "",
-            "impressive": "",
-            "excellent": ""
+            "solid": "≥90% of committed quarterly roadmap initiatives delivered within approved scope and timeline.",
+            "impressive": "≥95% delivered on scope and timeline, with no scope reductions accepted post-commitment.",
+            "excellent": "100% delivered on scope and timeline; retrospective evidence showing improved estimation accuracy quarter-over-quarter."
           }
         },
         {
@@ -145,19 +145,19 @@
           "title": "Location Deployments",
           "description": "100% location deployments activated on time.",
           "tiers": {
-            "solid": "",
-            "impressive": "",
-            "excellent": ""
+            "solid": "100% of planned location deployments activated on time.",
+            "impressive": "Solid + all deployments completed with zero critical post-go-live incidents within the first 30 days.",
+            "excellent": "Impressive + deployment playbook refined and reused, reducing average deployment cycle time by ≥20% vs. baseline."
           }
         },
         {
           "id": "O4-KR4",
           "title": "Product Dashboard",
-          "description": "Establish a product dashboard with metrics and measurement to use to evaluate our capabilities.",
+          "description": "Build and embed a product dashboard that gives the Retail & Wholesale Technology team visibility into capability performance, enabling data-driven prioritisation and investment decisions.",
           "tiers": {
-            "solid": "",
-            "impressive": "",
-            "excellent": ""
+            "solid": "Product dashboard live with core metrics defined and accessible to the team by Q2 2026.",
+            "impressive": "Solid + dashboard actively referenced in quarterly business reviews with at least one documented decision influenced by the data.",
+            "excellent": "Impressive + dashboard expanded to include predictive or trending metrics, and adopted as the primary tool for roadmap prioritisation discussions."
           }
         }
       ]
