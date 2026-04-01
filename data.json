@@ -10,6 +10,10 @@
           "id": "O1-KR1",
           "title": "Delivery Predictability & Agile Maturity",
           "description": "Achieve a high completed-vs-committed delivery ratio and ensure sprint tickets meet the Definition of Done (DoD) across all Retail & Wholesale delivery squads.",
+          "metrics": [
+            "% completed vs. committed per sprint (tracked weekly)",
+            "% of sprint tickets meeting DoD at close (not after)"
+          ],
           "tiers": {
             "solid": "80% completed vs. committed; 80% DoD adherence.",
             "impressive": "85% completed vs. committed; 85% DoD adherence.",
@@ -20,6 +24,10 @@
           "id": "O1-KR2",
           "title": "Testing Automation & Quality",
           "description": "Increase automated test and regression coverage across apps in Retail Commerce, Retail Digital workspace, across desktop and mobile form factors.",
+          "metrics": [
+            "% automated test coverage (unit + integration + regression) per app",
+            "Regression cycle time (how long a full regression run takes)"
+          ],
           "tiers": {
             "solid": "40% overall automated test coverage.",
             "impressive": "60% overall automated test coverage.",
@@ -52,6 +60,9 @@
           "id": "O2-KR1",
           "title": "Platform Services Adoption",
           "description": "Drive global platform scale by building any new Retail & Wholesale capabilities via adoption of the approved and available Omnichannel Platform (OCP) services and ensuring all new initiatives requiring services assist funding and building out of OCP domains.",
+          "metrics": [
+            "% of new integrations built on OCP vs. legacy services (approved by Enterprise Architecture)"
+          ],
           "tiers": {
             "solid": "90% of new integrations built on new platform services where available.",
             "impressive": "Solid + One extra unfunded capabilities migrate to new OCP services from legacy services.",
@@ -62,6 +73,10 @@
           "id": "O2-KR2",
           "title": "System Reliability & Security",
           "description": "Maintain critical platform uptime across POS, Workforce Management, and Wholesale Order platforms and ensure rapid remediation of critical vulnerabilities detected.",
+          "metrics": [
+            "Platform uptime % (POS, WFM, Wholesale — measured separately)",
+            "Mean time to resolve (MTTR) critical vulnerabilities"
+          ],
           "tiers": {
             "solid": "99.0% uptime; critical vulnerabilities addressed in 3 days.",
             "impressive": "99.5% uptime; critical vulnerabilities addressed in 48 hours.",
@@ -78,6 +93,9 @@
           "id": "O3-KR1",
           "title": "Financial & Roadmap Rigor",
           "description": "Deliver the Retail & Wholesale tech roadmaps on budget and sustain platforms within baseline opex budget.",
+          "metrics": [
+            "Actual vs. budget variance % (tracked monthly)"
+          ],
           "tiers": {
             "solid": "Delivered with +/- 10% budget variance.",
             "impressive": "Delivered with +/- 5% budget variance.",
@@ -88,6 +106,11 @@
           "id": "O3-KR2",
           "title": "Team Health, Retention & Development",
           "description": "Foster a high-performing organization by executing active development, and maintaining Peakon engagement scores from Q4 2025 benchmark.",
+          "metrics": [
+            "Voluntary attrition rate (quarterly)",
+            "% of team with active IDPs (Individual Development Plans) on file",
+            "Peakon focus area score trend Q1→Q4"
+          ],
           "tiers": {
             "solid": "90% retention; 90% of team has active development plans, Peakon score maintained.",
             "impressive": "95% retention; 95% of team has active development plans, Peakon score improved by 0.1 for 1 quarter.",
@@ -98,6 +121,9 @@
           "id": "O3-KR3",
           "title": "Planning & Delivery Framework Completion",
           "description": "100% completion of Planning and Delivery Framework artifacts for prioritized projects greater than USD $250k.",
+          "metrics": [
+            "% of projects >$250k with complete framework artifacts throughout the project lifecycle"
+          ],
           "tiers": {
             "solid": "100% of prioritized projects (>$250k) have Planning & Delivery Framework artifacts completed on time.",
             "impressive": "Solid + artifacts completed ahead of schedule and signed off by stakeholders before project kick-off.",
@@ -108,6 +134,9 @@
           "id": "O3-KR4",
           "title": "Succession Readiness",
           "description": "Ensure every critical role within the Retail & Wholesale Technology team has an identified and documented successor, with a development plan in place to close readiness gaps.",
+          "metrics": [
+            "% of critical roles with named successor documented"
+          ],
           "tiers": {
             "solid": "100% of critical roles have a named successor documented with an initial readiness assessment completed.",
             "impressive": "Solid + each successor has an active development plan targeting their specific readiness gaps, reviewed with the individual.",
@@ -124,6 +153,10 @@
           "id": "O4-KR1",
           "title": "Scheduling & Forecasting Capabilities",
           "description": "Deliver scheduling and key forecasting capabilities that are fully deployed, adopted, and operational across target locations by October 2026.",
+          "metrics": [
+            "Deployment date vs. target date (October 2026)",
+            "% of target locations live and transacting"
+          ],
           "tiers": {
             "solid": "Capabilities are deployment-ready and validated in a staging environment by October 2026.",
             "impressive": "Solid + deployed and live in all target locations by October 2026, with initial user adoption confirmed.",
@@ -134,6 +167,10 @@
           "id": "O4-KR2",
           "title": "Quarterly Roadmap Delivery",
           "description": "≥90% of committed quarterly roadmap initiatives delivered within approved scope and timeline.",
+          "metrics": [
+            "% initiatives delivered on scope per quarter",
+            "% initiatives delivered on timeline per quarter"
+          ],
           "tiers": {
             "solid": "≥90% of committed quarterly roadmap initiatives delivered within approved scope and timeline.",
             "impressive": "≥95% delivered on scope and timeline, with no scope reductions accepted post-commitment.",
@@ -159,6 +196,10 @@
           "id": "O4-KR4",
           "title": "Product Dashboard",
           "description": "Build and embed a product dashboard that gives the Retail & Wholesale Technology team visibility into capability performance, enabling data-driven prioritization and investment decisions.",
+          "metrics": [
+            "Number of decisions documented as influenced by dashboard data",
+            "% of roadmap review meetings where dashboard is referenced"
+          ],
           "tiers": {
             "solid": "Product dashboard live with core metrics defined and accessible to the team by Q2 2026.",
             "impressive": "Solid + dashboard actively referenced in quarterly business reviews with at least one documented decision influenced by the data.",
