@@ -143,7 +143,25 @@
         {
           "id": "O4-KR3",
           "title": "Location Deployments",
-          "description": "100% location deployments activated on time.",
+          "description": "100% of 16 planned store deployments activated on time across North America (11) and Europe (5).",
+          "metrics": [
+            "North America — Oakridge",
+            "North America — Markville (Markham)",
+            "North America — Masonville",
+            "North America — Whistler (Relocation)",
+            "North America — St. Catharines (Relocation)",
+            "North America — Burlingame",
+            "North America — Southdale",
+            "North America — Abbot Kinney",
+            "North America — Stanford Centre (Relocation)",
+            "North America — Seattle PO / Tulalip (Relocation)",
+            "North America — Vancouver Fair (Relocation)",
+            "Europe — Trattnerhof",
+            "Europe — Pratersaede",
+            "Europe — Karl Johans Gate",
+            "Europe — Ingolstadt Outlet",
+            "Europe — Brompton Road"
+          ],
           "tiers": {
             "solid": "100% of planned location deployments activated on time.",
             "impressive": "Solid + all deployments completed with zero critical post-go-live incidents within the first 30 days.",
